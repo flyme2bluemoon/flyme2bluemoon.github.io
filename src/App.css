@@ -1,0 +1,23 @@
+body {
+  @apply bg-slate-100 dark:bg-gray-900 dark:text-white;
+}
+
+h1 {
+  @apply text-8xl font-bold text-center py-80;
+}
+
+h2 {
+  @apply text-6xl font-bold text-center py-5;
+}
+
+.logo {
+  @apply rounded-lg mx-1 dark:border;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#footer {
+  @apply mt-40;
+}
