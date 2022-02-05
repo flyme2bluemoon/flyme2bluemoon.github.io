@@ -8,7 +8,7 @@ const Social = () => {
   return (
     <div id="social">
       <h2>Find me on the interwebs</h2>
-      <div className="flex flex-row flex-wrap justify-around">
+      <div className="flex flex-row flex-wrap justify-center">
         <Twitter />
         <Github />
         <Instagram />
