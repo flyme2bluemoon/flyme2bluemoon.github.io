@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.0a111710.css",
-    "main.js": "/static/js/main.a38875eb.js",
+    "main.js": "/static/js/main.a53e9925.js",
     "static/media/aircanada.jpg": "/static/media/aircanada.c7df555ded4b97ab3adb.jpg",
     "static/media/logo.png": "/static/media/logo.61910d80ea0637582684.png",
     "index.html": "/index.html",
     "main.0a111710.css.map": "/static/css/main.0a111710.css.map",
-    "main.a38875eb.js.map": "/static/js/main.a38875eb.js.map"
+    "main.a53e9925.js.map": "/static/js/main.a53e9925.js.map"
   },
   "entrypoints": [
     "static/css/main.0a111710.css",
-    "static/js/main.a38875eb.js"
+    "static/js/main.a53e9925.js"
   ]
 }
