@@ -5,13 +5,13 @@ const Footer = () => {
   return (
     <footer id="footer" className="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <a href="https://flowbite.com" target="_blank" className="flex items-center mb-4 sm:mb-0">
-          <img src={logo} className="logo mr-4 h-8" alt="flyme2bluemoon profile picture" />
+        <div className="flex items-center mb-4 sm:mb-0">
+          <img src={logo} className="logo mr-4 h-8" alt="flyme2bluemoon logo" />
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Matthew Shen</span>
-        </a>
+        </div>
         <ul className="flex flex-wrap items-center mb-6 sm:mb-0">
           <li>
-            <a href="#" className="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">Back to Top</a>
+            <a href="#top" className="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">Back to Top</a>
           </li>
         </ul>
       </div>
