@@ -4,7 +4,7 @@ import type { SocialCardProps } from '../types/Card';
 
 const SocialCard = ({ title, text, href, cta, icon }: SocialCardProps) => {
   return (
-    <div className="p-6 w-full bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 shadow-xl">
+    <div className="p-6 w-full bg-white rounded-lg border border-gray-200 dark:bg-gray-800 dark:border-gray-700 shadow-xl">
       <a href={href}>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><FontAwesomeIcon icon={icon} /> {title}</h5>
       </a>
