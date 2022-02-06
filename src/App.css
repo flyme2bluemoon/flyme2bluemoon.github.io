@@ -1,13 +1,13 @@
 body {
-  @apply bg-slate-100 dark:bg-gray-900 dark:text-white;
+  @apply bg-slate-100 dark:bg-gray-900 dark:text-white bg-topography-light dark:bg-topography-dark;
 }
 
-h1 {
-  @apply lg:text-8xl md:text-6xl text-4xl font-bold text-center py-80;
+.h1 {
+  @apply lg:text-8xl md:text-6xl text-4xl font-bold py-5;
 }
 
-h2 {
-  @apply lg:text-6xl md:text-4xl text-2xl font-bold text-center py-5;
+.h2 {
+  @apply lg:text-6xl md:text-4xl text-2xl font-bold py-5;
 }
 
 .logo {

@@ -5,8 +5,8 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Social = () => {
   return (
-    <div id="social">
-      <h2>Find me on the interwebs</h2>
+    <div id="social" className="mt-24 min-h-[50vh]">
+      <h2 className="h2 text-center">Find me on the interwebs</h2>
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:mx-36">
         <SocialCard title="Twitter" text="A collection of my latest shower thoughts" cta="Follow" href="https://twitter.com/flyme2bluemoon" icon={faTwitter} />
         <SocialCard title="Github" text="A place for me to show off my code" cta="Visit" href="https://github.com/flyme2bluemoon" icon={faGithub} />
