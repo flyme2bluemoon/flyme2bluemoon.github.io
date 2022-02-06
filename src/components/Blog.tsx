@@ -12,7 +12,8 @@ const Blog = () => {
   ]
 
   return (
-    <div id="blog">
+    <div>
+      <span id="blog" className="block relative -top-10" />
       <h2 className="h2 text-center">Latest Blog Posts</h2>
       <div className="mx-auto w-3/4 p-4 border-4 rounded-lg border-gray-300 dark:border-gray-600 bg-slate-100/90 dark:bg-slate-900/90 shadow-xl">
         {posts.map(entry => {
