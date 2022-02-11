@@ -18,7 +18,7 @@ const Blog = () => {
       <div className="mx-auto w-3/4 p-4 border-4 rounded-lg border-gray-300 dark:border-gray-600 bg-slate-100/90 dark:bg-slate-900/90 shadow-xl">
         {posts.map(entry => {
           return (
-            <ol className="relative border-l border-gray-200 dark:border-gray-700">
+            <ol className="relative border-l border-gray-200 dark:border-gray-700" key={entry.uri}>
               <li className="mb-4 ml-4">
                 <div className="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                 <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{entry.date}</time>

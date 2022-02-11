@@ -7,7 +7,7 @@ import Blog from './components/Blog';
 const App = () => {
   return (
     <div className="App">
-      <div className="min-h-screen flex justify-center align-center flex-col">
+      <div className="mt-48 md:mt-0 md:h-screen flex justify-center align-center flex-col">
         <h1 className="h1 text-center relative -translate-y-24">Hello, I'm Matthew Shen 👋</h1>
       </div>
       <Blog />

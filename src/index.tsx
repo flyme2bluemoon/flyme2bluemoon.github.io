@@ -7,13 +7,6 @@ import Post from './pages/Post';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 ReactDOM.render(
   <Router>
     <Navbar />
