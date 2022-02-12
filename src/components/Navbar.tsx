@@ -4,7 +4,7 @@ import logo from '../img/logo.png';
 
 const Navbar = () => {
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 fixed w-full top-0 z-50 shadow-lg">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800 fixed print:static w-full top-0 z-50 shadow-lg">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href="/#" className="flex">
             <img src={logo} width="36" className="logo" alt="flyme2bluemoon logo" />
