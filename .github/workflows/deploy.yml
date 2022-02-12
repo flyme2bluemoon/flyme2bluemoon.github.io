@@ -27,5 +27,4 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: git config --global user.name "Matthew Shen (Github Actions)"
-    - run: git fetch origin gh-pages:gh-pages
     - run: npm run deploy
