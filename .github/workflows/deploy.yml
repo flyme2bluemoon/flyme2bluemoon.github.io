@@ -27,4 +27,5 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: git config --global user.name "Matthew Shen (Github Actions)"
+    - run: git pull
     - run: npm run deploy
