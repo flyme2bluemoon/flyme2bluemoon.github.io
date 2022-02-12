@@ -21,3 +21,7 @@ html {
 #footer {
   @apply mt-40;
 }
+
+.link {
+  @apply underline text-slate-700 hover:text-slate-900 visited:text-slate-700 dark:text-slate-100 dark:hover:text-slate-300 dark:visited:text-slate-100;
+}
