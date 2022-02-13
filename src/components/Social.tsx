@@ -8,7 +8,7 @@ const Social = () => {
     <div className="mt-24 min-h-[50vh]">
       <span id="social" className="block relative -top-10" />
       <h2 className="h2 text-center">Find me on the interwebs</h2>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 sm:mx-36">
+      <div className="flex flex-row flex-wrap justify-center gap-4 w-full">
         <SocialCard title="Twitter" text="A collection of my latest shower thoughts" cta="Follow" href="https://twitter.com/flyme2bluemoon" icon={faTwitter} />
         <SocialCard title="Github" text="A place for me to show off my code" cta="Visit" href="https://github.com/flyme2bluemoon" icon={faGithub} />
         <SocialCard title="Youtube" text="A chronicle of my latest travel, before the pandemic at least" cta="Watch" href="https://www.youtube.com/channel/UCbOygd7cfMtsl3nKCJP_8Kg" icon={faYoutube} />
