@@ -4,6 +4,7 @@ import './App.css';
 import Social from './components/Social';
 import Blog from './components/Blog';
 import About from './components/About';
+import CodeGallery from './components/CodeGallery';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       </div>
       <About />
       <Blog />
+      <CodeGallery />
       <Social />
     </div>
   );
