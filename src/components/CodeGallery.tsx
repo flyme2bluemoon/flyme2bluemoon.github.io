@@ -11,6 +11,7 @@ const CodeGallery = () => {
 
   useEffect(() => {
     const pins = ["flyme2bluemoon.github.io", "Advent-of-Code-2021", "Hamming-Code", "Epidemic-Modelling"];
+    let isMounted = true;
 
     const fetchData = async() => {
       const response = await getRepos();
@@ -20,11 +21,17 @@ const CodeGallery = () => {
         response[index].og_url = await getRepoImage(response[index].full_name);
         newGallery.push(response[index]);
       }
-      setGallery(newGallery);
-      setLoading(false);
+      if (isMounted) {
+        setGallery(newGallery);
+        setLoading(false);
+      }
     }
 
     fetchData();
+
+    return () => { 
+      isMounted = false;
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
