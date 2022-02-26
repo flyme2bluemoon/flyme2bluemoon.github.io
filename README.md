@@ -1,5 +1,6 @@
 # My Static Page
 
+[![Deploy](https://github.com/flyme2bluemoon/flyme2bluemoon.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/flyme2bluemoon/flyme2bluemoon.github.io/actions/workflows/deploy.yml)  
 Once again, I have remade my static website this time using Gatsby since it seems to work better than Create React App.
 
 ## Check it out
