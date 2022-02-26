@@ -11,7 +11,7 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
       <meta name="google-site-verification" content="qv7xCfbt8MhWrx_-4gE7-b9MwPs0qsiPhjMu46L1Y18" />
       <link rel="shortcut icon" href={favicon} type="image/x-icon" />
       <Navbar />
-      {children}
+      <main className="min-h-[80vh]">{children}</main>
       <Footer />
     </div>
   );
