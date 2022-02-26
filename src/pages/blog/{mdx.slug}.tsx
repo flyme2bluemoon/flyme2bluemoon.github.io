@@ -45,7 +45,7 @@ const Post = ({ data }: blogQuery) => {
             {data.mdx.frontmatter.author}
           </span>
         </div>
-        <div className="py-5 prose prose-xl dark:prose-invert">
+        <div className="pt-10 pb-24 prose prose-xl dark:prose-invert">
           <MDXRenderer>
             {data.mdx.body}
           </MDXRenderer>
