@@ -51,7 +51,7 @@ const Projects = () => {
 
   return (
     <Layout pageTitle="Projects">
-      <div className="w-[1280px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <h1 className="text-6xl font-bold py-6">Projects</h1>
         <div>
           {
