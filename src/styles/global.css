@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.topography {
+  background-image: url(../images/topography-light.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+  .topography {
+    background-image: url(../images/topography-dark.svg);
+  }
+}
