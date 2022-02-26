@@ -65,7 +65,7 @@ const Projects = () => {
               Loading...
             </div>
             :
-            <div className="flex flex-wrap gap-10 justify-center">
+            <div className="flex flex-wrap gap-10 justify-center pb-10">
               {gallery}
             </div>
           }
