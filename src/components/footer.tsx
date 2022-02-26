@@ -34,11 +34,15 @@ const Footer = () => {
           </div>
           <ul className="flex flex-wrap items-center mb-6 sm:mb-0">
             <li>
+              <a href="https://github.com/flyme2bluemoon/flyme2bluemoon.github.io" target="_blank" rel="noopener noreferrer" className="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">View on Github</a>
+            </li>
+            <li>
               <Link to="" className="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">Back to Top</Link>
             </li>
           </ul>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">Made in Toronto</span>
         <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; 2022 Matthew Shen</span>
       </footer>
     </>
