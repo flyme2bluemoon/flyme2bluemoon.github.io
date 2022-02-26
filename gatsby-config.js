@@ -13,6 +13,13 @@ module.exports = {
         path: `${__dirname}/blog`
       }
     },
-    "gatsby-plugin-mdx"
+    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: `src/images/logo.png`
+      },
+    },
+    "gatsby-plugin-react-helmet"
   ]
 }
