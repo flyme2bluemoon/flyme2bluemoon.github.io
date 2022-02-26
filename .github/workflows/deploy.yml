@@ -26,5 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: git config user.email "37197710+flyme2bluemoon@users.noreply.github.com"
+    - run: git config user.name "Matthew Shen (using Github Actions)"
     - run: npm install
     - run: npm run deploy
