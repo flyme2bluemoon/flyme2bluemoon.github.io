@@ -9,6 +9,8 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
       <Helmet>
         <title>{pageTitle} | flyme2bluemoon</title>
         <meta name="google-site-verification" content="qv7xCfbt8MhWrx_-4gE7-b9MwPs0qsiPhjMu46L1Y18" />
+        <meta http-equiv="content-language" content="en-us" />
+        <meta name="description" content="Matthew Shen's (flyme2bluemoon) personal static landing page and blog." />
       </Helmet>
       <Navbar />
       <main className="min-h-[80vh]">{children}</main>
