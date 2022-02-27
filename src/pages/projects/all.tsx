@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../components/layout";
-import Repo from "../components/repo";
-import { getRepoImages, getRepos } from "../../utils/codeGallery";
-import { Link } from "gatsby";
+import Layout from "../../components/layout";
+import Repo from "../../components/repo";
+import { getRepoImages, getRepos } from "../../../utils/codeGallery";
 
-const Projects = () => {
+let startPtr = 0;
+let loadQuantity = 6;
+let endPtr = startPtr + loadQuantity;
+
+const AllProjects = () => {
   const [gallery, setGallery] = useState<JSX.Element[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const pins = ["flyme2bluemoon.github.io", "Advent-of-Code-2021", "Hamming-Code", "Epidemic-Modelling"];
-    let isMounted = true;
+  let isMounted = true;
 
-    (async () => {
-      const cards = [];
-      const repos = await getRepos();
-      for (let i = 0; i < pins.length; i++) {
-        const index = repos.findIndex((j: any) => (j.name === pins[i]));
-        const og_url = await getRepoImages(repos[index].full_name);
-        cards.push(
-          <Repo key={repos[i].full_name} full_name={repos[index].full_name} name={repos[index].name} og_url={og_url} html_url={repos[index].html_url} description={repos[index].description} />
-        );
-      }
-      if (isMounted) {
-        setGallery(cards);
-        setLoading(false);
-      }
-    })();
+  const loadMore = async () => {
+    const cards = [...gallery];
+    const repos = await getRepos();
+    for (let i = startPtr; i < Math.min(repos.length, endPtr); i++) {
+      const og_url = await getRepoImages(repos[i].full_name);
+      cards.push(
+        <Repo key={repos[i].full_name} full_name={repos[i].full_name} name={repos[i].name} og_url={og_url} html_url={repos[i].html_url} description={repos[i].description} />
+      );
+    }
+    console.log(startPtr, endPtr);
+    startPtr += loadQuantity;
+    endPtr += loadQuantity;
+    if (isMounted) {
+      setLoading(false);
+      setGallery(cards);
+    }
+  }
+
+  useEffect(() => {
+    loadMore();
 
     return () => {
       isMounted = false;
@@ -34,9 +40,9 @@ const Projects = () => {
   }, []);
 
   return (
-    <Layout pageTitle="Projects">
+    <Layout pageTitle="All Projects">
       <div className="max-w-[1280px] mx-auto">
-        <h1 className="text-6xl font-bold py-6">Projects</h1>
+        <h1 className="text-6xl font-bold py-6">All Projects</h1>
         <div className="mb-12">
           {
             loading
@@ -53,7 +59,7 @@ const Projects = () => {
               <div className="flex flex-wrap gap-10 justify-center pb-10">
                 {gallery}
               </div>
-              <Link to="/projects/all" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center">All Projects</Link>
+              <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center" onClick={loadMore}>Load More</button>
             </div>
           }
         </div>
@@ -62,4 +68,4 @@ const Projects = () => {
   );
 }
 
-export default Projects;
+export default AllProjects;
