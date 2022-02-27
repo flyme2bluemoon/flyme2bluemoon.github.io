@@ -1,7 +1,31 @@
 ---
 title: "New static landing page"
 author: "Matthew Shen"
-date: "2022-02-28"
+date: "2022-02-26"
 ---
 
-In order to improve the maintainability and speed of my static landing page, I have migrated from Create React App to Gatsby.
+## Prologue: Wordpress
+
+This story begins with my personal blog on Wordpress which you can still find at https://flymetobluemoon.wordpress.com. I have always used WordPress to share flight reviews and travel entries. However, I also wanted a space online where I could share my passion about technology. Additonally, I found WordPress quite limiting in terms of customization and I wanted to flex my coding skills (lol). Enter my static websites journey.
+
+## Enter Github Pages
+
+Upon discovering Github Pages, I published my first static vanilla HTML, CSS and JS site on 17 November 2020. Let's just my design skills were undeveloped. Although you can still find the source code on the [master branch](https://github.com/flyme2bluemoon/flyme2bluemoon.github.io/tree/master) of this repo, I'd highly recommend you not in order to preserve your dignity. This edition was just a single HTML page and linked to my Socials and that was about it.
+
+### The Renaissance: React
+
+As I learned more about web development, I added some frameworks and libraries to help make developing the page easier. You can find this version on the [v2 branch](https://github.com/flyme2bluemoon/flyme2bluemoon.github.io/tree/v2) of this repo. I added React using Create React App and Tailwind for CSS. CSS has always been my biggest struggle but with some help from Flowbite, the site didn't look terrible anymore. I even incorporated my previous Code Gallery page into my static site in order to create a more tightly connected user experience.
+
+However, this version still was far from perfect. For one, React's pages are sent to the browser as empty HTML pages which is less that ideal for speed and optimization of a simply static page. Furthermore, I never really got the react-router working quite properly. I was able to navigate to different pages by first loading the index page but could not directly access the subpages. Additionally, my implementation of rendering blog posts from MDX files was very poorly designed.
+
+### The Interlude: Next.js
+
+After learning React, I also explored working with it's derivative Next.js. I had actually quite enjoyed working with Next.js. I found it's page routing much more intuitive to use and static site generation very nice. Although I will likely continue using Next.js for projects that require basic serverside rendering, the same could not be said about Create React App.
+
+### The Finale: Gatsby
+
+I had heard about Gatsby and decided to skim through its documentation. It looked really promising for exactly what I wanted and it could be served from a static site hosting service like Github Pages. Furthermore, its implementation of page routing was more seemless and it included support for static site generation. This allowed me to create much improved user experience when compared to Create React App. To top it off, Gatsby comes with amazing GraphQL and MDX integrations which allowed me to set up this blog seemlessly.
+
+## Epilogue: The Verdict
+
+When I first embarked on this project 2 years ago, I had not fully realized the full potential of static websites. However, with some frameworks and libraries, static websites are now more powerful than ever.
