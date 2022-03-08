@@ -22,7 +22,6 @@ const AllProjects = () => {
         <Repo key={repos[i].full_name} full_name={repos[i].full_name} name={repos[i].name} og_url={og_url} html_url={repos[i].html_url} description={repos[i].description} />
       );
     }
-    console.log(startPtr, endPtr);
     startPtr += loadQuantity;
     endPtr += loadQuantity;
     if (isMounted) {
