@@ -48,7 +48,7 @@ const Stats = () => {
               const sum: number = Object.values(languages).reduce((sum, next) => (sum + next), 0);
               return (
                 // @ts-expect-error
-                <div className="w-[80%] mx-auto py-4"><span style={{color: colors[lang].color}}>&#9679;</span> {lang} {(languages[lang] / sum * 100).toFixed(2)}%</div>
+                <div className="w-[80%] mx-auto py-4"><span style={{color: colors[lang].color}}>&#9679;</span> <span className="font-semibold">{lang}</span> {(languages[lang] / sum * 100).toFixed(2)}%</div>
               );
             })}
           </div>
