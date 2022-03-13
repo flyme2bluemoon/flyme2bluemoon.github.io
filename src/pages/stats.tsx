@@ -14,6 +14,10 @@ const Stats = () => {
         histogram[repos[i].language] = (histogram[repos[i].language] ? histogram[repos[i].language] + 1 : 1);
       }
     }
+
+    // @ts-expect-error
+    histogram = Object.entries(histogram).sort(([,a],[,b]) => b-a).reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+
     setLanguages(histogram);
   }
 
