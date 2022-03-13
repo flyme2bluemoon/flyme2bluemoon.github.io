@@ -20,6 +20,15 @@ module.exports = {
         icon: `src/images/logo.png`
       },
     },
-    "gatsby-plugin-react-helmet"
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["G-QZWHFGCR3R"],
+        gtagConfig: {
+          anonymize_ip: true
+        }
+      }
+    }
   ]
 }

@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "./footer";
 import Navbar from "./navbar";
 import { Helmet } from "react-helmet";
+import { getFCP, getFID, getTTFB } from "web-vitals";
 
 const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.ReactElement }) => {
+  const sendToGoogleAnalytics = ({name, delta, id}: any) => {
+    // @ts-ignore
+    typeof window.gtag !== "undefined" && window.gtag('event', name, {
+      event_category: 'Web Vitals',
+      event_label: id,
+      value: delta,
+      non_interaction: true,
+    });
+  }
+
+  useEffect(() => {
+    getFCP(sendToGoogleAnalytics);
+    getFID(sendToGoogleAnalytics);
+    getTTFB(sendToGoogleAnalytics);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50">
       <Helmet htmlAttributes={{ lang: "en" }}>
