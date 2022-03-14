@@ -14,7 +14,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
-    "deploy": "npm run build && gh-pages -d public"
+    "deploy": "npm run build && gh-pages -d public",
+    "prod": "npm run build && npm run serve"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
