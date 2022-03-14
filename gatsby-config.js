@@ -1,8 +1,10 @@
+const siteUrl = "https://flyme2bluemoon.github.io";
+
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-      title: `Matthew Shen`,
-      siteUrl: `https://flyme2bluemoon.github.io`,
+    title: "Matthew Shen",
+    siteUrl: siteUrl,
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -27,6 +29,33 @@ module.exports = {
         trackingIds: ["G-QZWHFGCR3R"],
         gtagConfig: {
           anonymize_ip: true
+        }
+      }
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `query {
+          allSitePage {
+            nodes {
+              path
+              pageContext
+            }
+          }
+        }`,
+        createLinkInHead: true,
+        output: "/sitemap",
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: allPages }
+        }) => {
+          return allPages;
+        },
+        serialize: ({ path, pageContext }) => {
+          return {
+            url: path,
+            lastmod: pageContext.modifiedGmt
+          }
         }
       }
     }
