@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <Layout pageTitle="Home">
       <div>
-        <div className="h-[720px] flex justify-center align-center flex-col topography">
+        <div className="h-[720px] flex justify-center align-center flex-col bg-[url('../images/topography-light.svg')] dark:bg-[url('../images/topography-dark.svg')]">
           <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">Hello, I'm Matthew Shen 👋</h1>
         </div>
         <div className="p-8 md:p-36 bg-slate-100 dark:bg-gray-800">

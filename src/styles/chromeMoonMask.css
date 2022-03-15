@@ -1,0 +1,7 @@
+/* Optimization for Chromium  */
+@supports (cx: 1) {
+  .dark #moon-mask > circle {
+    transform: translateX(0);
+    cx: 17;
+  }
+}
