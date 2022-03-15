@@ -9,15 +9,21 @@ const Stats = () => {
   const getStats = async () => {
     const repos = await getRepos();
     let histogram: any = {};
+    const languageResponses = [];
     for (let i = 0; i < repos.length; i++) {
       if (repos[i].language !== null) {
-        const languages = await getRepoLanguages(repos[i].name);
-        const languageIndex = Object.keys(languages);
-        for (let i = 0; i < languageIndex.length; i++) {
-          histogram[languageIndex[i]] = (histogram[languageIndex[i]] ? histogram[languageIndex[i]] + languages[languageIndex[i]] : languages[languageIndex[i]]);
-        }
+        languageResponses.push(getRepoLanguages(repos[i].name));
       }
     }
+    await Promise.all(languageResponses)
+      .then((languages) => {
+        for (let i = 0; i < languages.length; i++) {
+          const languageIndex = Object.keys(languages[i]);
+          for (let j = 0; j < languageIndex.length; j++) {
+            histogram[languageIndex[j]] = (histogram[languageIndex[j]] ? histogram[languageIndex[j]] + languages[i][languageIndex[j]] : languages[i][languageIndex[j]]);
+          }
+        }
+      });
 
     // @ts-expect-error
     histogram = Object.entries(histogram).sort(([,a],[,b]) => b-a).reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
