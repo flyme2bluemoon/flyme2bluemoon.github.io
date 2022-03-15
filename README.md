@@ -9,7 +9,7 @@ You can find my landing page deployed here: https://flyme2bluemoon.github.io
 
 ## Build instructions
 
-To run a development server.
+To run a development server. This will become available at http://localhost:8000
 ```sh
 npm run develop
 ```
