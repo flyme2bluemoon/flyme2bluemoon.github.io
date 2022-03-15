@@ -15,3 +15,9 @@ export const getRepoImages = async (fullname: string) => {
     .then(res => res.text());
   return og_url;
 }
+
+export const getRepoLanguages = async (name: string) => {
+  const languages = await fetch(`https://code-gallery-api.vercel.app/api/repos?name=${name}`)
+    .then(res => res.json());
+  return languages;
+}

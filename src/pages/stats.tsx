@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRepos } from "../../utils/codeGallery";
+import { getRepoLanguages, getRepos } from "../../utils/codeGallery";
 import Layout from "../components/layout";
 import * as colors from "../../utils/colors.json";
 
@@ -11,7 +11,11 @@ const Stats = () => {
     let histogram: any = {};
     for (let i = 0; i < repos.length; i++) {
       if (repos[i].language !== null) {
-        histogram[repos[i].language] = (histogram[repos[i].language] ? histogram[repos[i].language] + 1 : 1);
+        const languages = await getRepoLanguages(repos[i].name);
+        const languageIndex = Object.keys(languages);
+        for (let i = 0; i < languageIndex.length; i++) {
+          histogram[languageIndex[i]] = (histogram[languageIndex[i]] ? histogram[languageIndex[i]] + languages[languageIndex[i]] : languages[languageIndex[i]]);
+        }
       }
     }
 
@@ -39,7 +43,7 @@ const Stats = () => {
               const total = Object.keys(languages).length - 1;
               return (
                 <div key={lang} className={`h-2.5 ${count === 0 ? "rounded-l" : ""} ${count === total ? "rounded-r" : ""}`} style={{
-                  width: `${Math.round(languages[lang] / sum * 100)}%`,
+                  width: `${languages[lang] / sum * 100}%`,
                   // @ts-expect-error
                   backgroundColor: colors[lang].color
                 }}></div>
@@ -52,7 +56,7 @@ const Stats = () => {
               const sum: number = Object.values(languages).reduce((sum, next) => (sum + next), 0);
               return (
                 // @ts-expect-error
-                <div className="w-[80%] mx-auto py-4"><span style={{color: colors[lang].color}}>&#9679;</span> <span className="font-semibold">{lang}</span> {(languages[lang] / sum * 100).toFixed(2)}%</div>
+                <div key={lang} className="w-[80%] mx-auto py-4"><span style={{color: colors[lang].color}}>&#9679;</span> <span className="font-semibold">{lang}</span> {(languages[lang] / sum * 100).toFixed(2)}%</div>
               );
             })}
           </div>
