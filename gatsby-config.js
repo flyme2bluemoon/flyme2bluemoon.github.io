@@ -28,7 +28,8 @@ module.exports = {
       options: {
         trackingIds: ["G-QZWHFGCR3R"],
         gtagConfig: {
-          anonymize_ip: true
+          anonymize_ip: true,
+          cookie_flags: "SameSite=None; Secure"
         }
       }
     },
