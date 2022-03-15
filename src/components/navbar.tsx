@@ -42,7 +42,7 @@ const Navbar = ({ toggleHandler }: { toggleHandler: () => void }) => {
           <button className="theme-toggle [-webkit-tap-highlight-color:transparent] p-1 bg-none border-0 w-8 h-8 aspect-square rounded-md cursor-pointer touch-manipulation outline-offset-[5px] hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700" id="theme-toggle" title="Toggles light and dark theme" aria-label="auto" aria-live="polite" onClick={toggleHandler}>
             <svg className="group sun-and-moon w-full h-full" aria-hidden="true" width="2" height="24" viewBox="0 0 24 24" strokeLinecap="round">
               <circle className="sun transition-transform duration-500 ease-in-out dark:duration-250 origin-center fill-gray-700 group-hover:fill-gray-900 dark:fill-gray-300 dark:group-hover:fill-gray-100 dark:scale-[175%]" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
-              <g className="sun-beams transition-[transform,_opacity] duration-500 ease-in-out dark:duration-250 dark:-rotate-[25px] origin-center stroke-gray-700 group-hover:stroke-gray-900 dark:opacity-0" stroke="currentColor" strokeWidth="2px">
+              <g className="sun-beams transition-[transform,_opacity] duration-500 ease-in-out dark:duration-250 dark:-rotate-[25deg] origin-center stroke-gray-700 group-hover:stroke-gray-900 dark:opacity-0" stroke="currentColor" strokeWidth="2px">
                 <line x1="12" y1="1" x2="12" y2="3" />
                 <line x1="12" y1="21" x2="12" y2="23" />
                 <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
