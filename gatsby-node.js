@@ -11,3 +11,31 @@ exports.onCreatePage = ({ page, actions }) => {
     },
   })
 }
+
+exports.createPages = async ({ actions, graphql }) => {
+  const { data } = await graphql(`
+    query {
+      allMdx {
+        nodes {
+          frontmatter {
+            tags
+          }
+        }
+      }
+    }
+  `);
+
+  let tags = [];
+  for (let i = 0; i < data.allMdx.nodes.length; i++) {
+    tags = tags.concat(data.allMdx.nodes[i].frontmatter.tags);
+  }
+  tags = [...new Set(tags)];
+  
+  tags.forEach(tag => {
+    actions.createPage({
+      path: `/blog/tags/${tag.toLowerCase()}`,
+      component: require.resolve("./src/pages/blog/tags/tags.tsx"),
+      context: { tag: tag }
+    });
+  })
+}
