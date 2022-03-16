@@ -44,8 +44,8 @@ type mdxQuery = {
 }
 
 const Blog = ({ data, pageContext }: mdxQuery) => {
-  if (typeof pageContext.tag === "undefined") {
-    navigate("/blog");
+  if (typeof window !== "undefined") {
+    typeof pageContext.tag === "undefined" && navigate("/blog");
   }
   return (
     <Layout pageTitle={pageContext.tag}>
