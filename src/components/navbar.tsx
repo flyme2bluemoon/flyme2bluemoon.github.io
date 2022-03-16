@@ -8,7 +8,7 @@ const Navbar = ({ toggleHandler }: { toggleHandler: () => void }) => {
   const [menuExpanded, setMenuExpanded] = useState(false);
 
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded-b dark:bg-gray-800">
+    <nav className="bg-white px-2 sm:px-4 py-2.5 rounded-b dark:bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex">
           <img src={logo} className="h-10 mr-3 rounded-lg" alt="" />
