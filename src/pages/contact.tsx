@@ -4,7 +4,7 @@ import Layout from "../components/layout";
 const Contact = () => {
   return (
     <Layout pageTitle="Contact">
-      <div className="w-[800px] mx-auto px-8">
+      <div className="max-w-[800px] mx-auto px-8">
         <h1 className="text-6xl font-bold py-3">Contact</h1>
         If you'd like to get in touch with me, here are some ways you can do so.
         <div>
