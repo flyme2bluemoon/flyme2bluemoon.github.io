@@ -17,9 +17,9 @@ const AllProjects = () => {
     const cards = [...gallery];
     const repos = await getRepos();
     for (let i = startPtr; i < Math.min(repos.length, endPtr); i++) {
-      const og_url = await getRepoImages(repos[i].full_name);
+      console.log(repos[i]);
       cards.push(
-        <Repo key={repos[i].full_name} full_name={repos[i].full_name} name={repos[i].name} og_url={og_url} html_url={repos[i].html_url} description={repos[i].description} />
+        <Repo key={repos[i].full_name} full_name={repos[i].full_name} name={repos[i].name} html_url={repos[i].html_url} description={repos[i].description} language={repos[i].language} />
       );
     }
     startPtr += loadQuantity;

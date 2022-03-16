@@ -17,9 +17,8 @@ const Projects = () => {
       const repos = await getRepos();
       for (let i = 0; i < pins.length; i++) {
         const index = repos.findIndex((j: any) => (j.name === pins[i]));
-        const og_url = await getRepoImages(repos[index].full_name);
         cards.push(
-          <Repo key={repos[i].full_name} full_name={repos[index].full_name} name={repos[index].name} og_url={og_url} html_url={repos[index].html_url} description={repos[index].description} />
+          <Repo key={repos[index].full_name} full_name={repos[index].full_name} name={repos[index].name} html_url={repos[index].html_url} description={repos[index].description} language={repos[index].language} />
         );
       }
       if (isMounted) {
