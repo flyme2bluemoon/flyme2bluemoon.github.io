@@ -36,7 +36,7 @@ const BlogNavbar = () => {
             <ul className="flex flex-row space-x-8 mt-0 font-medium mx-auto w-fit">
               {tagsList.map((tag) => (
                 <li key={tag}>
-                  <Link to={`/blog/tags/${tag.toLowerCase()}/`} className="block text-black rounded-md dark:text-white">{tag}</Link>
+                  <Link to={`/blog/tags/${tag.toLowerCase()}/`} className="inline-block text-black rounded-md dark:text-white no-underline py-1 relative before:absolute before:block before:w-full before:h-[2px] before:bottom-1 before:left-0 before:scale-x-0 before:transition-transform before:duration-300 before:ease-in-out before:bg-black dark:before:bg-white before:hover:scale-x-105">{tag}</Link>
                 </li>
               ))}
             </ul>
