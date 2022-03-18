@@ -55,6 +55,8 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
           <meta name="google-site-verification" content="qv7xCfbt8MhWrx_-4gE7-b9MwPs0qsiPhjMu46L1Y18" />
           <meta http-equiv="content-language" content="en-us" />
           <meta name="description" content="Matthew Shen's (flyme2bluemoon) personal static landing page and blog." />
+          <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
         </Helmet>
         <Navbar toggleHandler={toggleClickHandler} />
         <main className="min-h-[80vh]">{children}</main>
