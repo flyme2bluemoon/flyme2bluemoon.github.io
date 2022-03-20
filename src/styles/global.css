@@ -5,3 +5,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  @apply bg-gray-50;
+}
+
+body.dark {
+  @apply bg-gray-900;
+}
