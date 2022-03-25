@@ -7,9 +7,12 @@ const Home = () => {
     <Layout pageTitle="Home">
       <div>
         <div className="h-[720px] flex justify-center align-center flex-col bg-[url('../images/topography-light.svg')] dark:bg-[url('../images/topography-dark.svg')]">
-          <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">Hello, I'm Matthew Shen 👋</h1>
+          <div className="mx-10 sm:mx-24 lg:mx-48">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold">Hello, my name is</h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">Matthew Shen<span className="text-blue-700 dark:text-blue-500">.</span></h1>
+          </div>
         </div>
-        <div className="p-8 md:p-36 bg-slate-100 dark:bg-gray-800">
+        <div className="p-8 md:p-36">
           <div className="max-w-[720px] mx-auto">
             <h2 className="text-center font-bold text-4xl pb-8">About Matthew</h2>
             <p className="text-center text-gray-800 dark:text-gray-200 leading-relaxed">
