@@ -26,20 +26,25 @@ const Footer = () => {
           </OutboundLink>
         </div>
       </div>
-      <footer className="p-4 bg-white rounded-t-lg shadow md:px-6 md:py-8 dark:bg-gray-800">
-        <div className="sm:flex sm:items-center sm:justify-between">
+      <footer className="p-4 bg-white rounded-t-lg shadow md:px-6 md:py-8 dark:bg-gray-800 border-b-8 border-blue-400 dark:border-blue-800">
+        <div className="sm:flex sm:items-start sm:justify-between md:mx-16 lg:mx-32 xl:mx-48">
           <div className="flex items-center mb-4 sm:mb-0">
             <img src={logo} className="h-8 mr-3 rounded-lg" alt="" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Matthew Shen</span>
           </div>
-          <ul className="flex flex-wrap items-center mb-6 sm:mb-0">
+          <div className="sm:mb-3 sm:max-w-xs p-4 rounded-lg bg-blue-100 dark:bg-blue-900">
+            <h1 className="font-semibold text-lg">Get in touch</h1>
+            <p className="text-sm">For all inquires, the best way to get in touch with me is via email</p>
+            <a href="mailto:matthew.zh.shen@gmail.com" className="text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300 font-serif font-medium">matthew.zh.shen@gmail.com</a>
+          </div>
+          {/* <ul className="flex flex-wrap items-center my-6 sm:mb-0">
             <li>
               <OutboundLink href="https://github.com/flyme2bluemoon/flyme2bluemoon.github.io" target="_blank" rel="noopener noreferrer" className="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">View on Github</OutboundLink>
             </li>
             <li>
               <Link to="" className="mr-4 text-sm text-gray-500 hover:underline md:mr-6 dark:text-gray-400">Back to Top</Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">Made in Toronto</span>

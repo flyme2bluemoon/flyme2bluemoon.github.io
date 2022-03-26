@@ -22,6 +22,14 @@ const About = () => {
               </ul>
             </ol>
           </div>
+          <div>
+            <h2 className="text-3xl font-bold">Technical Skills</h2>
+            <ol className="list-decimal">
+              <li>Front and backend Javascript/Typescript development with frameworks suchs as React, Next.js and Gatsby</li>
+              <li>General-purpose programming languages including C, C++ and Python</li>
+              <li>Databases including SQL databases such as MySQL and NoSql databases such as MongoDB</li>
+            </ol>
+          </div>
         </div>
       </>
     </Layout>

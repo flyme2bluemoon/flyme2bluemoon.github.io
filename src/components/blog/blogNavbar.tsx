@@ -32,7 +32,7 @@ const BlogNavbar = () => {
         }
         tagsList = [...new Set(tagsList)];
         return (
-          <nav className="bg-blue-400 dark:bg-blue-900 px-2 sm:px-4 py-2.5 rounded-b">
+          <nav className="bg-blue-400 dark:bg-blue-900 px-2 sm:px-4 py-2.5 rounded-b shadow-xl">
             <ul className="flex flex-row space-x-8 mt-0 font-medium mx-auto w-fit">
               {tagsList.map((tag) => (
                 <li key={tag}>

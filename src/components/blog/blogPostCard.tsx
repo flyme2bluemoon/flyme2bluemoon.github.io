@@ -4,8 +4,8 @@ import React from "react";
 const BlogPostCard = ({ title, author, date, timeToRead, slug, tags }: { title: string, author: string, date: string, timeToRead: number, slug: string, tags: string[] }) => {
   return (
     <div className="block p-3 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-5">
-      <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h2>
-      <div className="mb-3">
+      <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><Link to={`/blog/posts/${slug}/`} className="mb-2 text-xl font-semibold tracking-tight text-blue-600 hover:underline dark:text-blue-500 flex items-center">{title}</Link></h2>
+      <div>
         <div>
           <span className="flex">
             <svg className="w-5 h-5 mr-1 dark:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M152 64H296V24C296 10.75 306.7 0 320 0C333.3 0 344 10.75 344 24V64H384C419.3 64 448 92.65 448 128V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H104V24C104 10.75 114.7 0 128 0C141.3 0 152 10.75 152 24V64zM48 448C48 456.8 55.16 464 64 464H384C392.8 464 400 456.8 400 448V192H48V448z"/></svg>
@@ -17,10 +17,6 @@ const BlogPostCard = ({ title, author, date, timeToRead, slug, tags }: { title: 
           </span>
         </div>
       </div>
-      <Link to={`/blog/posts/${slug}/`} className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Read
-        <svg className="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-      </Link>
     </div>
   );
 }

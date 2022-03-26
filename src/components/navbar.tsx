@@ -8,7 +8,7 @@ const Navbar = ({ toggleHandler }: { toggleHandler: () => void }) => {
   const [menuExpanded, setMenuExpanded] = useState(false);
 
   return (
-    <nav className="bg-white px-2 sm:px-4 py-2.5 rounded-b dark:bg-gray-800">
+    <nav className="bg-white px-2 sm:px-4 py-2.5 rounded-b dark:bg-gray-800 shadow-lg">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex">
           <img src={logo} className="h-10 mr-3 rounded-lg" alt="" />
@@ -33,9 +33,6 @@ const Navbar = ({ toggleHandler }: { toggleHandler: () => void }) => {
             </li>
             <li>
               <Link to="/stats/" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Stats</Link>
-            </li>
-            <li>
-              <Link to="/contact/" className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</Link>
             </li>
           </ul>
         </div>
