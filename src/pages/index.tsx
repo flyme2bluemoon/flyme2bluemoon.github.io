@@ -1,15 +1,26 @@
 import { OutboundLink } from "gatsby-plugin-google-gtag";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/layout";
 
 const Home = () => {
+  const [greeting, setGreeting] = useState("");
+
+  useEffect(() => {
+    const myGreeting = "Hello, my name is";
+    for (let i = 0; i <= myGreeting.length; i++) {
+      setTimeout(() => {
+        setGreeting(myGreeting.slice(0, i));
+      }, i * 100);
+    }
+  }, []);
+
   return (
     <Layout pageTitle="Home">
       <div>
         <div className="h-[720px] flex justify-center align-center flex-col bg-[url('../images/topography-light.svg')] dark:bg-[url('../images/topography-dark.svg')]">
-          <div className="mx-10 sm:mx-24 lg:mx-48">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold">Hello, my name is</h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">Matthew Shen<span className="text-blue-700 dark:text-blue-500">.</span></h1>
+          <div className="mx-10 sm:mx-24 lg:mx-32 xl:mx-60">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold">{greeting}&nbsp;</h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">Matthew Shen<span className="text-blue-700 dark:text-blue-500">.</span></h1>
           </div>
         </div>
         <div className="p-8 md:p-36">
