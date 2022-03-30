@@ -4,6 +4,7 @@ import Navbar from "./navbar";
 import { Helmet } from "react-helmet";
 import { getFCP, getFID, getTTFB } from "web-vitals";
 import { sendToGoogleAnalytics } from "../../utils/analytics";
+import { Link } from "gatsby";
 
 const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.ReactElement }) => {
   const storageKey = "bluemoon-theme";
@@ -46,6 +47,17 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
     getTTFB(sendToGoogleAnalytics);
   }, []);
 
+  const [topBtnStatus, setTopBtnStatus] = useState(false);
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (document.documentElement.scrollTop > 200) {
+        setTopBtnStatus(true);
+      } else {
+        setTopBtnStatus(false);
+      }
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-50">
       <Helmet htmlAttributes={{ lang: "en" }}>
@@ -58,6 +70,9 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
       </Helmet>
       <Navbar toggleHandler={toggleClickHandler} />
       <main className="min-h-[80vh]">{children}</main>
+      <Link to="" className={`block fixed bottom-4 right-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-full text-sm p-2.5 text-center mr-2 mb-2 transition-opacity ${topBtnStatus ? "opacity-100" : "opacity-0"}`}>
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path></svg>
+      </Link>
       <Footer />
     </div>
   );
