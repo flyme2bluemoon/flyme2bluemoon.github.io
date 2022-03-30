@@ -70,7 +70,7 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
       </Helmet>
       <Navbar toggleHandler={toggleClickHandler} />
       <main className="min-h-[80vh]">{children}</main>
-      <Link to="" className={`block fixed bottom-4 right-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-full text-sm p-2.5 text-center mr-2 mb-2 transition-opacity ${topBtnStatus ? "opacity-100" : "opacity-0"}`}>
+      <Link to="" className={`block fixed bottom-4 right-4 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-full text-sm p-2.5 text-center ${topBtnStatus ? "[transition:visibility_0s_0s,_opacity_500ms] visible opacity-100" : "[transition:visibility_0s_500ms,_opacity_500ms] invisible opacity-0"}`} aria-label="back to top">
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7"></path></svg>
       </Link>
       <Footer />
