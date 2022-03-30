@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-blog-tsx",
     "path": "/blog/",
-    "result": {"data":{"allMdx":{"nodes":[{"frontmatter":{"author":"Matthew Shen","date":"26 February 2022","tags":["Technology"],"title":"New static landing page"},"id":"3167d349-1d75-5466-ae6f-4454f33ef690","slug":"new-github-pages","timeToRead":2},{"frontmatter":{"author":"Matthew Shen","date":"5 February 2022","tags":["Personal"],"title":"Hello, world!"},"id":"8c7543ce-eb9f-5ab2-8c18-d6f8176e6b21","slug":"hello-world","timeToRead":1}]}},"pageContext":{"modifiedGmt":"2022-03-30T11:00:42.000Z"}},
+    "result": {"data":{"allMdx":{"nodes":[{"frontmatter":{"author":"Matthew Shen","date":"26 February 2022","tags":["Technology"],"title":"New static landing page"},"id":"3167d349-1d75-5466-ae6f-4454f33ef690","slug":"new-github-pages","timeToRead":2},{"frontmatter":{"author":"Matthew Shen","date":"5 February 2022","tags":["Personal"],"title":"Hello, world!"},"id":"8c7543ce-eb9f-5ab2-8c18-d6f8176e6b21","slug":"hello-world","timeToRead":1}]}},"pageContext":{"modifiedGmt":"2022-03-30T11:14:30.000Z"}},
     "staticQueryHashes": ["2779752602"]}
