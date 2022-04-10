@@ -7,6 +7,10 @@ Once again, I have remade my static website this time using Gatsby since it seem
 
 You can find my landing page deployed here: https://flyme2bluemoon.github.io
 
+## Status Page
+
+Just for fun, I have also set up a [status page](https://stats.uptimerobot.com/E7JLyil9Jm) using Uptime Robot to see when Github Pages is down. LOL
+
 ## Build instructions
 
 To run a development server. This will become available at http://localhost:8000
