@@ -67,6 +67,7 @@ const Layout = ({ pageTitle, children }: { pageTitle: string, children: React.Re
         <meta name="description" content="Matthew Shen's (flyme2bluemoon) personal static landing page and blog." />
         <meta name="theme-color" content="#f1f5f9" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+        <meta http-equiv="origin-trial" content="AomxYODeeetC+QgxYZpQC4NwUmIAnKJwgSJcwzmOMQ/0c7sJ/aqd012r0f6PIlhbkH+Mk2JGqRJJGdjKNfWMVQkAAABxeyJvcmlnaW4iOiJodHRwczovL2ZseW1lMmJsdWVtb29uLmdpdGh1Yi5pbzo0NDMiLCJmZWF0dXJlIjoiU2VuZEZ1bGxVc2VyQWdlbnRBZnRlclJlZHVjdGlvbiIsImV4cGlyeSI6MTY4NDg4NjM5OX0=" />
       </Helmet>
       <Navbar toggleHandler={toggleClickHandler} />
       <main className="min-h-[80vh]">{children}</main>
