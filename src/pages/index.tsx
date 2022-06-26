@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 
 const Home = () => {
   const [greeting, setGreeting] = useState("");
-  const [cursorVisibility, setCursorVisibiility] = useState(true);
 
   useEffect(() => {
     const myGreeting = "Hello, my name is";
