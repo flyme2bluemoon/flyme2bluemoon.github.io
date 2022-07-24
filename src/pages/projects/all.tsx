@@ -3,10 +3,6 @@ import Layout from "../../components/layout";
 import Repo from "../../components/repo";
 import { getRepoImages, getRepos } from "../../../utils/codeGallery";
 
-let startPtr = 0;
-let loadQuantity = 6;
-let endPtr = startPtr + loadQuantity;
-
 const AllProjects = () => {
   const [gallery, setGallery] = useState<JSX.Element[]>([]);
   const [loading, setLoading] = useState(true);
@@ -16,14 +12,12 @@ const AllProjects = () => {
   const loadMore = async () => {
     const cards = [...gallery];
     const repos = await getRepos();
-    for (let i = startPtr; i < Math.min(repos.length, endPtr); i++) {
+    for (let i = 0; i < repos.length; i++) {
       console.log(repos[i]);
       cards.push(
         <Repo key={repos[i].full_name} full_name={repos[i].full_name} name={repos[i].name} html_url={repos[i].html_url} description={repos[i].description} language={repos[i].language} />
       );
     }
-    startPtr += loadQuantity;
-    endPtr += loadQuantity;
     if (isMounted) {
       setLoading(false);
       setGallery(cards);
@@ -58,7 +52,6 @@ const AllProjects = () => {
               <div className="flex flex-wrap gap-10 justify-center pb-10">
                 {gallery}
               </div>
-              <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center" onClick={loadMore}>Load More</button>
             </div>
           }
         </div>

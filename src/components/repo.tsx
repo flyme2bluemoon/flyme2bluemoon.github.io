@@ -12,7 +12,7 @@ type GithubRepo = {
 
 const Repo = ({ full_name, name, html_url, description, language }: GithubRepo) => {
   return (
-    <div key={full_name} className="w-96 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+    <div key={full_name} className="w-96 bg-white rounded-lg border border-gray-200 shadow-lg dark:shadow-2xl dark:bg-gray-800 dark:border-gray-700">
       <div className="p-5">
         <h2 className="mb-2 text-xl font-semibold tracking-tight text-blue-600 hover:underline dark:text-blue-500 flex items-center">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" className="mr-1 dark:fill-white">

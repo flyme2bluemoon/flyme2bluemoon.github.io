@@ -9,7 +9,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const pins = ["flyme2bluemoon.github.io", "Advent-of-Code-2021", "Hamming-Code", "Epidemic-Modelling"];
+    const pins = ["flyme2bluemoon.github.io", "Advent-of-Code-2021", "Hamming-Code", "Epidemic-Modelling", "InfiniteFlightConnect-Python"];
     let isMounted = true;
 
     (async () => {
