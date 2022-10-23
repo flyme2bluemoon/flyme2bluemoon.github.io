@@ -7,7 +7,7 @@ const About = () => {
       <>
         <div className="pb-24 pt-48 text-center bg-blue-50 dark:bg-slate-800">
           <h1 className="text-5xl font-bold pb-10">&#x1F468;&#x200D;&#x1F393; About Me</h1>
-          <div className="text-3xl max-w-6xl mx-auto">I am an incoming student at McGill University in Montreal,&nbsp;Quebec,&nbsp;Canada pursuing a Bachelor of Science in Computer Science</div>
+          <div className="text-3xl max-w-6xl mx-auto">I am a current student at McGill University in Montreal,&nbsp;Quebec,&nbsp;Canada pursuing a Bachelor of Science in Computer Science</div>
           <hr className="w-48 border-2 mx-auto m-10 border-blue-400 dark:border-blue-800" />
         </div>
         <div className="mx-auto max-w-3xl prose dark:prose-invert pb-24">
@@ -27,6 +27,25 @@ const About = () => {
             </ul>
           </div>
           <div>
+            <h2 className="text-3xl font-bold mb-2">Math and Computer Science Courses</h2>
+            <h3 className="text-2xl font-semibold">Fall 2022</h3>
+            <div className="font-semibold">
+              <ul className="list-disc">
+                <li>COMP 250 - Introduction to Computer Science<br /><span className="font-light">Java, Data Structures, and Algorithms</span></li>
+                <li>MATH 133 - Linear Algebra and Geometry</li>
+                <li>MATH 140 - Calculus 1</li>
+              </ul>
+            </div>
+            <h3 className="text-2xl font-semibold">Winter 2023</h3>
+            <div className="font-semibold">
+              <ul className="list-disc">
+                <li>COMP 206 - Introduction to Software Systems</li>
+                <li>MATH 141 - Calculus 2</li>
+                <li>MATH 240 - Discrete Structures</li>
+              </ul>
+            </div>
+          </div>
+          <div>
             <h2 className="text-3xl font-bold">What I'm Currently Working On</h2>
             <ol className="list-decimal">
               <li>I have been practicing and competing in Competitive Programming competitions and Cybersecurity Capture the Flag events.</li>
@@ -40,7 +59,8 @@ const About = () => {
             <h2 className="text-3xl font-bold">Technical Skills</h2>
             <ol className="list-decimal">
               <li>Front and backend Javascript/Typescript development with frameworks suchs as React, Next.js and Gatsby</li>
-              <li>General-purpose programming languages including C, C++ and Python</li>
+              <li>General-purpose programming languages including C, C++, Java, and Python</li>
+              <li>Understanding of data structures and algorithms</li>
               <li>Databases including SQL databases such as MySQL and NoSql databases such as MongoDB</li>
             </ol>
           </div>
