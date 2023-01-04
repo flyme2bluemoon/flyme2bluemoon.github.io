@@ -2,38 +2,34 @@ import React, { useEffect, useState } from "react";
 import { getRepoLanguages, getRepos } from "../../utils/codeGallery";
 import Layout from "../components/layout";
 import * as colors from "../../utils/colors.json";
+import { graphql } from "gatsby";
 
-const Stats = () => {
-  const [languages, setLanguages] = useState<any>({});
-  
-  const getStats = async () => {
-    const repos = await getRepos();
-    let histogram: any = {};
-    const languageResponses = [];
-    for (let i = 0; i < repos.length; i++) {
-      if (repos[i].language !== null) {
-        languageResponses.push(getRepoLanguages(repos[i].name));
+export const query = graphql`
+  query {
+    allLanguagesNode {
+      edges {
+        node {
+          histogram
+        }
       }
     }
-    await Promise.all(languageResponses)
-      .then((languages) => {
-        for (let i = 0; i < languages.length; i++) {
-          const languageIndex = Object.keys(languages[i]);
-          for (let j = 0; j < languageIndex.length; j++) {
-            histogram[languageIndex[j]] = (histogram[languageIndex[j]] ? histogram[languageIndex[j]] + languages[i][languageIndex[j]] : languages[i][languageIndex[j]]);
-          }
-        }
-      });
-
-    // @ts-expect-error
-    histogram = Object.entries(histogram).sort(([,a],[,b]) => b-a).reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-
-    setLanguages(histogram);
   }
+`;
 
-  useEffect(() => {
-    getStats();
-  }, []);
+type stats = {
+  data: {
+    allLanguagesNode: {
+      edges: [{
+        node: {
+          histogram: string
+        }
+      }]
+    }
+  }
+}
+
+const Stats = ({ data } : stats) => {
+  const languages = JSON.parse(data.allLanguagesNode.edges[0].node.histogram);
 
   return (
     <Layout pageTitle="Stats">
