@@ -1,5 +1,9 @@
 const siteUrl = "https://flyme2bluemoon.github.io";
 
+require("dotenv").config({
+  path: `.env`,
+});
+
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {

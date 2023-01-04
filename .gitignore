@@ -59,3 +59,6 @@ scripts/.env
 !themes/gatsby-starter-notes-theme/package-lock.json
 !themes/gatsby-starter-theme/package-lock.json
 !themes/gatsby-starter-theme-workspace/package-lock.json
+
+# additional
+.env*
