@@ -39,7 +39,7 @@ const About = () => {
             <h3 className="text-2xl font-semibold">Winter 2023</h3>
             <div className="font-semibold">
               <ul className="list-disc">
-                <li>COMP 206 - Introduction to Software Systems</li>
+                <li>COMP 206 - Introduction to Software Systems<br /><span className="font-light">Unix, Bash, and C</span></li>
                 <li>MATH 141 - Calculus 2</li>
                 <li>MATH 240 - Discrete Structures</li>
               </ul>
