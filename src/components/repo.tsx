@@ -7,12 +7,14 @@ type GithubRepo = {
   name: string,
   html_url: string,
   description: string,
-  language: string
+  language: string,
+  og_image_url: string
 }
 
-const Repo = ({ full_name, name, html_url, description, language }: GithubRepo) => {
+const Repo = ({ full_name, name, html_url, description, language, og_image_url }: GithubRepo) => {
   return (
     <div key={full_name} className="w-96 bg-white rounded-lg border border-gray-200 shadow-lg dark:shadow-2xl dark:bg-gray-800 dark:border-gray-700">
+      <img className="rounded-t-lg" src={og_image_url} />
       <div className="p-5">
         <h2 className="mb-2 text-xl font-semibold tracking-tight text-blue-600 hover:underline dark:text-blue-500 flex items-center">
           <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" className="mr-1 dark:fill-white">
