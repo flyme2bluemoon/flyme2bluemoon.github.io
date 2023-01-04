@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-gtag";
 import React from "react";
 // @ts-ignore
