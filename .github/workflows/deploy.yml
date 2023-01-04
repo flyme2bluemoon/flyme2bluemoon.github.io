@@ -8,6 +8,8 @@ on:
     branches: [ v3 ]
   pull_request:
     branches: [ v3 ]
+  schedule:
+    -cron: "0 5 */2 * *"
 
 jobs:
   build:

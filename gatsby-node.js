@@ -48,7 +48,7 @@ exports.sourceNodes = async({ actions, createNodeId, createContentDigest }) => {
   const api_response = await fetch("https://api.github.com/users/flyme2bluemoon/repos", {
     method: "GET",
     headers: {
-      "Authorization": `token ${process.env.GITHUB_APIKEY}`
+      "Authorization": `token ${process.env.GITHUB_TOKEN}`
     }
   })
     .then(data => data.json())
