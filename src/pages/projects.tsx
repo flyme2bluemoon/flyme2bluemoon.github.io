@@ -6,15 +6,13 @@ import { graphql } from "gatsby";
 export const query = graphql`
   query {
     allRepoNode {
-      edges {
-        node {
-          full_name
-          name
-          html_url
-          description
-          language
-          og_image_url
-        }
+      nodes {
+        full_name
+        name
+        html_url
+        description
+        language
+        og_image_url
       }
     }
   }
@@ -23,15 +21,13 @@ export const query = graphql`
 type repo = {
   data: {
     allRepoNode: {
-      edges: [{
-        node: {
-          full_name: string,
-          name: string,
-          html_url: string,
-          description: string,
-          language: string,
-          og_image_url: string,
-        }
+      nodes: [{
+        full_name: string,
+        name: string,
+        html_url: string,
+        description: string,
+        language: string,
+        og_image_url: string,
       }]
     }
   }
@@ -42,12 +38,12 @@ const Projects = ({ data }: repo) => {
   const pinGallery: JSX.Element[] = [];
   const gallery: JSX.Element[] = [];
 
-  const repos = data.allRepoNode.edges;
+  const repos = data.allRepoNode.nodes;
 
   for (let i = 0; i < repos.length; i++) {
-    const card: JSX.Element = <Repo key={repos[i].node.full_name} full_name={repos[i].node.full_name} name={repos[i].node.name} html_url={repos[i].node.html_url} description={repos[i].node.description} language={repos[i].node.language} og_image_url={repos[i].node.og_image_url} />;
+    const card: JSX.Element = <Repo key={repos[i].full_name} full_name={repos[i].full_name} name={repos[i].name} html_url={repos[i].html_url} description={repos[i].description} language={repos[i].language} og_image_url={repos[i].og_image_url} />;
 
-    if (pins.includes(repos[i].node.name)) {
+    if (pins.includes(repos[i].name)) {
       pinGallery.push(card);
     } else {
       gallery.push(card);

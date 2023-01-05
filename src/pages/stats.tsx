@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { getRepoLanguages, getRepos } from "../../utils/codeGallery";
+import React from "react";
 import Layout from "../components/layout";
 import * as colors from "../../utils/colors.json";
 import { graphql } from "gatsby";
@@ -7,10 +6,8 @@ import { graphql } from "gatsby";
 export const query = graphql`
   query {
     allLanguagesNode {
-      edges {
-        node {
-          histogram
-        }
+      nodes {
+        histogram
       }
     }
   }
@@ -19,17 +16,15 @@ export const query = graphql`
 type stats = {
   data: {
     allLanguagesNode: {
-      edges: [{
-        node: {
-          histogram: string
-        }
+      nodes: [{
+        histogram: string
       }]
     }
   }
 }
 
 const Stats = ({ data } : stats) => {
-  const languages = JSON.parse(data.allLanguagesNode.edges[0].node.histogram);
+  const languages = JSON.parse(data.allLanguagesNode.nodes[0].histogram);
 
   return (
     <Layout pageTitle="Stats">
@@ -64,7 +59,7 @@ const Stats = ({ data } : stats) => {
                 );
               })}
             </div>
-            <small className="text-gray-500 dark:text-gray-400">Data from Github API based on most used language in each public repo</small>
+            <small className="text-gray-500 dark:text-gray-400">Data from Github API in public repos</small>
           </div>
         </div>
       </div>
