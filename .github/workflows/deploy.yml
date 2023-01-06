@@ -37,6 +37,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Deploy on McGill CS Webserver
       run: |
+        npm run clean
         npm run mimiBuild
         cd public/ && zip -r ../mimi.zip * && cd ..
         echo ${SSH_KEY} > id_rsa
