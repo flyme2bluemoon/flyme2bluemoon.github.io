@@ -35,15 +35,15 @@ jobs:
         npm run deploy -- -u "Matthew Shen (using Github Actions) <37197710+flyme2bluemoon@users.noreply.github.com>"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Deploy on McGill CS Webserver
-      run: |
-        npm run clean
-        npm run mimiBuild
-        cd public/ && zip -r ../mimi.zip * && cd ..
-        echo ${SSH_KEY} > id_rsa
-        chmod 600 id_rsa
-        scp -i id_rsa mimi.zip mshen@mimi.cs.mcgill.ca:~/public_html
-        curl https://cs.mcgill.ca/~mshen/cgi-bin/rebuild.cgi?${API_KEY}
-      env:
-        SSH_KEY: ${{ secrets.SSH_KEY }}
-        API_KEY: ${{ secrets.API_KEY }}
+    # - name: Deploy on McGill CS Webserver
+    #   run: |
+    #     npm run clean
+    #     npm run mimiBuild
+    #     cd public/ && zip -r ../mimi.zip * && cd ..
+    #     echo ${SSH_KEY} > id_rsa
+    #     chmod 600 id_rsa
+    #     scp -i id_rsa mimi.zip mshen@mimi.cs.mcgill.ca:~/public_html
+    #     curl https://cs.mcgill.ca/~mshen/cgi-bin/rebuild.cgi?${API_KEY}
+    #   env:
+    #     SSH_KEY: ${{ secrets.SSH_KEY }}
+    #     API_KEY: ${{ secrets.API_KEY }}
