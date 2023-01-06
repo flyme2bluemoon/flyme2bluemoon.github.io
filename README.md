@@ -6,6 +6,7 @@ Once again, I have remade my static website this time using Gatsby since it seem
 ## Check it out
 
 You can find my landing page deployed here: https://flyme2bluemoon.github.io
+Alternatively, it is also hosted on McGill School of Computer Science's servers: https://cs.mcgill.ca/~mshen/
 
 ## Status Page
 
