@@ -15,6 +15,7 @@
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "deploy": "npm run build && gh-pages -d public",
+    "mimiBuild": "gatsby build --prefix-paths",
     "prod": "npm run build && npm run serve"
   },
   "devDependencies": {

@@ -10,6 +10,7 @@ module.exports = {
     title: "Matthew Shen",
     siteUrl: siteUrl,
   },
+  pathPrefix: "/~mshen",
   plugins: [
     "gatsby-plugin-postcss",
     {
