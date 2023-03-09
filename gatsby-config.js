@@ -4,6 +4,10 @@ require("dotenv").config({
   path: `.env`,
 });
 
+if (process.env.GITHUB_TOKEN === undefined) {
+  throw new Error("process.env.GITHUB_TOKEN is undefined");
+}
+
 /** @type {import('gatsby').GatsbyConfig} */
 module.exports = {
   siteMetadata: {
