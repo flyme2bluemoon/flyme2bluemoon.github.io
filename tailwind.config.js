@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'sans': ['Lato', ...defaultTheme.fontFamily.sans],
-        'serif': ['Georgia', ...defaultTheme.fontFamily.serif]
+        'serif': ['Georgia', ...defaultTheme.fontFamily.serif],
+        'mono': ['Source Code Pro', ...defaultTheme.fontFamily.mono]
       }
     }
   },

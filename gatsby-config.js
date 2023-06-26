@@ -17,6 +17,7 @@ module.exports = {
   pathPrefix: "/~mshen",
   plugins: [
     "gatsby-plugin-postcss",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -24,7 +25,16 @@ module.exports = {
         path: `${__dirname}/blog`
       }
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`
+          }
+        ]
+      }
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
