@@ -13,10 +13,9 @@ export const query = graphql`
           date(formatString: "D MMMM YYYY")
           tags
           title
+          slug
         }
         id
-        slug
-        timeToRead
       }
     }
   }
@@ -34,10 +33,9 @@ type mdxQuery = {
           date: string,
           tags: string[],
           title: string
+          slug: string,
         },
         id: string,
-        slug: string,
-        timeToRead: number
       }]
     }
   }
@@ -55,7 +53,7 @@ const Blog = ({ data, pageContext }: mdxQuery) => {
           <h1 className="font-bold text-6xl py-5">{pageContext.tag}</h1>
           {
             data.allMdx.nodes.map((node) => (
-              <BlogPostCard key={node.id} title={node.frontmatter.title} author={node.frontmatter.author} date={node.frontmatter.date} timeToRead={node.timeToRead} slug={node.slug} tags={node.frontmatter.tags} />
+              <BlogPostCard key={node.id} title={node.frontmatter.title} author={node.frontmatter.author} date={node.frontmatter.date} slug={node.frontmatter.slug} tags={node.frontmatter.tags} />
             ))
           }
         </div>

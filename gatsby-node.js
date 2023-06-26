@@ -90,7 +90,7 @@ exports.sourceNodes = async({ actions, createNodeId, createContentDigest }) => {
     createNode(node);
 
     // build languages stats
-    if (repo.langualge !== null) {
+    if (repo.language !== null) {
       const repoLanguages = await fetch(`https://api.github.com/repos/${repo.full_name}/languages`, requestConfig).then(res => res.json());
       languageResponses.push(repoLanguages);
     }

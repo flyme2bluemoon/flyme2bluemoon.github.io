@@ -6,17 +6,16 @@ import BlogNavbar from "../components/blog/blogNavbar";
 
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    allMdx(sort: {frontmatter: {date: DESC}}) {
       nodes {
         frontmatter {
           author
           date(formatString: "D MMMM YYYY")
           tags
           title
+          slug
         }
         id
-        slug
-        timeToRead
       }
     }
   }
@@ -31,10 +30,9 @@ type mdxQuery = {
           date: string,
           tags: string[],
           title: string
+          slug: string,
         },
         id: string,
-        slug: string,
-        timeToRead: number
       }]
     }
   }
@@ -52,7 +50,7 @@ const Blog = ({ data }: mdxQuery) => {
           </div>
           {
             data.allMdx.nodes.map((node) => (
-              <BlogPostCard key={node.id} title={node.frontmatter.title} author={node.frontmatter.author} date={node.frontmatter.date} timeToRead={node.timeToRead} slug={node.slug} tags={node.frontmatter.tags} />
+              <BlogPostCard key={node.id} title={node.frontmatter.title} author={node.frontmatter.author} date={node.frontmatter.date} slug={node.frontmatter.slug} tags={node.frontmatter.tags} />
             ))
           }
         </div>

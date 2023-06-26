@@ -1,7 +1,7 @@
 import { Link } from "gatsby";
 import React from "react";
 
-const BlogPostCard = ({ title, author, date, timeToRead, slug, tags }: { title: string, author: string, date: string, timeToRead: number, slug: string, tags: string[] }) => {
+const BlogPostCard = ({ title, author, date, slug, tags }: { title: string, author: string, date: string, slug: string, tags: string[] }) => {
   return (
     <div className="block p-3 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-5">
       <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><Link to={`/blog/posts/${slug}/`} className="mb-2 text-xl font-semibold tracking-tight text-blue-600 hover:underline dark:text-blue-500 flex items-center">{title}</Link></h2>
@@ -14,13 +14,13 @@ const BlogPostCard = ({ title, author, date, timeToRead, slug, tags }: { title: 
             </svg>
             {date}
           </span>
-          <span className="flex">
+          {/* <span className="flex">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-5 h-5 mr-2 dark:fill-white bi bi-clock" viewBox="0 0 16 16">
               <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
               <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
             </svg>
             {timeToRead} min read
-          </span>
+          </span> */}
         </div>
       </div>
     </div>

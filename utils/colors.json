@@ -1147,6 +1147,10 @@
         "color": "#083fa1",
         "url": "https://github.com/trending?l=Markdown"
     },
+    "MDX": {
+        "color": "#083fa1",
+        "url": "https://github.com/trending?l=Markdown"
+    },
     "Marko": {
         "color": "#42bff2",
         "url": "https://github.com/trending?l=Marko"
