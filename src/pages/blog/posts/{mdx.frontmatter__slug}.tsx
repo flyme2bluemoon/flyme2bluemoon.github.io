@@ -38,7 +38,7 @@ const Post = ({ data: { mdx }, children }: blogQuery) => {
 
   return (
     <Layout pageTitle={mdx.frontmatter.title}>
-      <div className="max-w-[1200px] mx-auto px-16 my-8">
+      <div className="lg:w-3/5 md:w-4/5 mx-auto px-3 my-8">
         <h1 className="font-bold text-4xl md:text-6xl py-5">{mdx.frontmatter.title}</h1>
         <div>
           <div>
@@ -68,7 +68,7 @@ const Post = ({ data: { mdx }, children }: blogQuery) => {
             </div>
           </div>
           {/* {JSON.stringify(data.mdx.tableOfContents)} */}
-          <div className="py-5 prose prose-xl dark:prose-invert max-w-none">
+          <div className="py-5 prose prose-xl dark:prose-invert max-w-none prose-code:before:content-none prose-code:after:content-none">
             {children}
           </div>
           <div><span className="font-semibold">Tagged in:</span> {mdx.frontmatter.tags.map(tag => (

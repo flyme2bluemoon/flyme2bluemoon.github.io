@@ -43,7 +43,7 @@ const Blog = ({ data }: mdxQuery) => {
     <Layout pageTitle="Blog">
       <>
         <BlogNavbar />
-        <div className="max-w-[720px] mx-auto">
+        <div className="lg:w-3/5 md:w-4/5 px-3 mx-auto pb-16">
           <h1 className="font-bold text-6xl pt-5">Blog</h1>
           <div className="my-5 px-4 border-l-4 border-blue-400 dark:border-blue-800">
             A collection of some of my random thoughts that hopefully you find enjoyable or interesting enough to read.
