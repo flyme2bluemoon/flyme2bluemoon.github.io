@@ -16,7 +16,7 @@ const About = () => {
             <ul className="list-disc">
               <li>
                 <b>McGill University - Montreal, QC, Canada</b> <br />
-                B.Sc. Computer Science and Biology <br />
+                B.Sc. Honours Computer Science and Biology <br />
                 <span className="font-light">Sept 2022 - April 2026</span>
               </li>
               <li>
@@ -27,39 +27,13 @@ const About = () => {
             </ul>
           </div>
           <div>
-            <h2 className="text-3xl font-bold mb-2">Computer Science Courses</h2>
-            <div className="font-semibold">
-              <ul className="list-disc">
-                <li>COMP 250 - Introduction to Computer Science<br /><span className="font-light">Java, Data Structures, and Algorithms</span></li>
-                <li>COMP 206 - Introduction to Software Systems<br /><span className="font-light">Unix, Bash, and C</span></li>
-              </ul>
-            </div>
-            <h2 className="text-3xl font-bold mb-2">Mathematics Courses</h2>
-            <div className="font-semibold">
-              <ul className="list-disc">
-                <li>MATH 133 - Linear Algebra and Geometry</li>
-                <li>MATH 140 - Calculus 1</li>
-                <li>MATH 141 - Calculus 2</li>
-                <li>MATH 240 - Discrete Structures</li>
-              </ul>
-            </div>
-            <h2 className="text-3xl font-bold mb-2">Biology Courses</h2>
-            <div className="font-semibold">
-              <ul className="list-disc">
-                <li>BIOL 111 - Organismal Biology</li>
-                <li>BIOL 112 - Cell and Molecular Biology</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold">What I'm Currently Working On</h2>
-            <ol className="list-decimal">
-              <li>I have been practicing and competing in Competitive Programming competitions and Cybersecurity Capture the Flag events.</li>
-              <li>My latest major coding project is this website which is built using Gatsby and Tailwind CSS and hosted on Github Pages.</li>
-              {/* <ul>
-                <li>On this website, I plan to blog about my interests such as technology, the humanities, and productivity/lifestyle.</li>
-              </ul> */}
-            </ol>
+            <h2 className="text-3xl font-bold">Experience</h2>
+            <ul className="list-disc">
+              {/* <li><span className="font-semibold">COMP 250 TEAM Mentor</span><br /><br /><span className="font-light">Sept 2023 - Present</span></li> */}
+              <li><span className="font-semibold">Crew Member at McGill Summer Academy</span><br />Acted as a role model, supervised students aged 15-17 and led activities while ensuring their health, safety, and well-being<br /><span className="font-light">July 2023</span></li>
+              <li><span className="font-semibold">President of Coding Club at Alexander Mackenzie HS</span><br /><span className="font-light">Sept 2021 - June 2022</span></li>
+              <li><span className="font-semibold">VP of Operations of Math Club at Alexander Mackenzie HS</span><br /><span className="font-light">Sept 2021 - June 2022</span></li>
+            </ul>
           </div>
           <div>
             <h2 className="text-3xl font-bold">Technical Skills and Certificates</h2>
@@ -73,12 +47,43 @@ const About = () => {
             </ol>
           </div>
           <div>
-            <h2 className="text-3xl font-bold">Experience</h2>
-            <ul className="list-disc">
-              <li>President of Coding Club at Alexander Mackenzie HS</li>
-              <li>VP of Operations of Math Club at Alexander Mackenzie HS</li>
-              <li>Mathematics Peer Tutor at Alexander Mackenzie HS</li>
-            </ul>
+            <h2 className="text-3xl font-bold">What I'm Currently Working On</h2>
+            <ol className="list-decimal">
+              <li>I have been practicing and competing in Competitive Programming competitions and Cybersecurity Capture the Flag events.</li>
+              <li>My latest major coding project is this website which is built using Gatsby and Tailwind CSS and hosted on Github Pages.</li>
+              {/* <ul>
+                <li>On this website, I plan to blog about my interests such as technology, the humanities, and productivity/lifestyle.</li>
+              </ul> */}
+            </ol>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold mb-2">Computer Science Courses</h2>
+            <div className="font-semibold">
+              <ul className="list-disc">
+                <li>COMP 250 - Introduction to Computer Science<br /><span className="font-light">Java, Data Structures, and Algorithms</span></li>
+                <li>COMP 206 - Introduction to Software Systems<br /><span className="font-light">Unix, Bash, and C</span></li>
+                <li>COMP 273 - Introduction to Computer Systems<br /><span className="font-light">Logic circuits, MIPS assembly</span></li>
+              </ul>
+            </div>
+            <h2 className="text-3xl font-bold mb-2">Mathematics Courses</h2>
+            <div className="font-semibold">
+              <ul className="list-disc">
+                <li>MATH 133 - Linear Algebra and Geometry</li>
+                <li>MATH 140 - Calculus 1</li>
+                <li>MATH 141 - Calculus 2</li>
+                <li>MATH 240 - Discrete Structures</li>
+                <li>MATH 222 - Calculus 3</li>
+              </ul>
+            </div>
+            <h2 className="text-3xl font-bold mb-2">Biology and Science Courses</h2>
+            <div className="font-semibold">
+              <ul className="list-disc">
+                <li>BIOL 111 - Organismal Biology</li>
+                <li>BIOL 112 - Cell and Molecular Biology</li>
+                <li>CHEM 112 - Introductory Organic Chemistry</li>
+                <li>BIOL 219 - Introduction to Physical Molecular and Cell Biology</li>
+              </ul>
+            </div>
           </div>
           <div>
             <h2 className="text-3xl font-bold">Languages</h2>
