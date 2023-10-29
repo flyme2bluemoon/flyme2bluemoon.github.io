@@ -29,7 +29,7 @@ const About = () => {
           <div>
             <h2 className="text-3xl font-bold">Experience</h2>
             <ul className="list-disc">
-              {/* <li><span className="font-semibold">COMP 250 TEAM Mentor</span><br /><br /><span className="font-light">Sept 2023 - Present</span></li> */}
+              <li><span className="font-semibold">COMP 250 TEAM Mentor</span><br />Recipient of Tomlinson Engagement Award for Mentoring for COMP 250 Introduction to Computer Science<br /><span className="font-light">Sept 2023 - Present</span></li>
               <li><span className="font-semibold">Crew Member at McGill Summer Academy</span><br />Acted as a role model, supervised students aged 15-17 and led activities while ensuring their health, safety, and well-being<br /><span className="font-light">July 2023</span></li>
               <li><span className="font-semibold">President of Coding Club at Alexander Mackenzie HS</span><br /><span className="font-light">Sept 2021 - June 2022</span></li>
               <li><span className="font-semibold">VP of Operations of Math Club at Alexander Mackenzie HS</span><br /><span className="font-light">Sept 2021 - June 2022</span></li>
@@ -62,7 +62,7 @@ const About = () => {
               <ul className="list-disc">
                 <li>COMP 250 - Introduction to Computer Science<br /><span className="font-light">Java, Data Structures, and Algorithms</span></li>
                 <li>COMP 206 - Introduction to Software Systems<br /><span className="font-light">Unix, Bash, and C</span></li>
-                <li>COMP 273 - Introduction to Computer Systems<br /><span className="font-light">Logic circuits, MIPS assembly</span></li>
+                <li>COMP 273 - Introduction to Computer Systems<br /><span className="font-light">Number Representations, Circuits, and MIPS Assembly</span></li>
               </ul>
             </div>
             <h2 className="text-3xl font-bold mb-2">Mathematics Courses</h2>
