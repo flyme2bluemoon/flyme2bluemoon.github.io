@@ -61,6 +61,7 @@ const About = () => {
             <div className="font-semibold">
               <ul className="list-disc">
                 <li>COMP 250 - Introduction to Computer Science<br /><span className="font-light">Java, Data Structures, and Algorithms</span></li>
+                <li>COMP 252 - Honours Algorithms and Data Structures<br /><span className="font-light">Design and analysis of data structures and algorithms. Proof of correctness of algorithms and determining their computational complexity.</span></li>
                 <li>COMP 206 - Introduction to Software Systems<br /><span className="font-light">Unix, Bash, and C</span></li>
                 <li>COMP 273 - Introduction to Computer Systems<br /><span className="font-light">Number Representations, Circuits, and MIPS Assembly</span></li>
               </ul>
@@ -73,6 +74,8 @@ const About = () => {
                 <li>MATH 141 - Calculus 2</li>
                 <li>MATH 240 - Discrete Structures</li>
                 <li>MATH 222 - Calculus 3</li>
+                <li>MATH 223 - Linear Algebra</li>
+                <li>MATH 323 - Probability</li>
               </ul>
             </div>
             <h2 className="text-3xl font-bold mb-2">Biology and Science Courses</h2>
@@ -82,6 +85,7 @@ const About = () => {
                 <li>BIOL 112 - Cell and Molecular Biology</li>
                 <li>CHEM 112 - Introductory Organic Chemistry</li>
                 <li>BIOL 219 - Introduction to Physical Molecular and Cell Biology</li>
+                <li>BIOL 202 - Basic Genetics</li>
               </ul>
             </div>
           </div>

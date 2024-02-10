@@ -46,8 +46,8 @@ const Footer = () => {
           </ul> */}
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400 mb-1">Made in Toronto</span>
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; 2023 Matthew Shen</span>
+        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400 mb-1">Made in Toronto and Montreal</span>
+        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">&copy; 2024 Matthew Shen</span>
       </footer>
     </>
   );

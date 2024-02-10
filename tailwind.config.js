@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Lato', ...defaultTheme.fontFamily.sans],
-        'serif': ['Georgia', ...defaultTheme.fontFamily.serif],
-        'mono': ['Source Code Pro', ...defaultTheme.fontFamily.mono]
+        'sans': ['Inter', ...defaultTheme.fontFamily.sans],
+        'serif': ['Merriweather', ...defaultTheme.fontFamily.serif],
+        'mono': ['"Fira Code"', ...defaultTheme.fontFamily.mono]
       }
     }
   },
