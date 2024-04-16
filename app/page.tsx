@@ -5,12 +5,17 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const [greeting, setGreeting] = useState("");
 
+  const myGreeting = "Hello, my name is";
+
   useEffect(() => {
-    const myGreeting = "Hello, my name is";
-    for (let i = 0; i <= myGreeting.length; i++) {
-      setTimeout(() => {
-        setGreeting(myGreeting.slice(0, i));
-      }, i * 100);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      for (let i = 0; i <= myGreeting.length; i++) {
+        setTimeout(() => {
+          setGreeting(myGreeting.slice(0, i));
+        }, i * 100);
+      }
+    } else {
+      setGreeting(myGreeting);
     }
   }, []);
 
@@ -34,7 +39,7 @@ const Home = () => {
         <div className="mx-10 sm:mx-24 lg:mx-32 xl:mx-60">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-1">
             {greeting}&nbsp;
-            <noscript>Hello, my name is</noscript>
+            <noscript>{myGreeting}</noscript>
           </h1>
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold py-1">
             Matthew Shen
