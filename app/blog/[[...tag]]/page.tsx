@@ -31,18 +31,18 @@ const Blog = ({ params }: Props) => {
     postsData = postsData.filter((post) =>
       post.tags
         .map((tag) => tag.toLowerCase().replaceAll(" ", "-"))
-        .includes(params.tag[1])
+        .includes(params.tag[1]),
     );
   }
 
   return (
     <>
       <BlogNavbar />
-      <div className="lg:w-3/5 md:w-4/5 px-3 mx-auto pb-16">
-        <h1 className="font-bold text-6xl pt-5">
+      <div className="mx-auto px-3 pb-16 md:w-4/5 lg:w-3/5">
+        <h1 className="pt-5 text-5xl font-bold">
           {typeof params.tag === "undefined" ? "blog" : params.tag[1]}
         </h1>
-        <div className="my-5 px-4 border-l-4 border-blue-400 dark:border-blue-800">
+        <div className="my-5 border-l-4 border-blue-400 px-4 dark:border-blue-800">
           A collection of some of my random thoughts that hopefully you find
           enjoyable or interesting enough to read.
         </div>

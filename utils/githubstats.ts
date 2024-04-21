@@ -27,7 +27,7 @@ export const getLanguages = async () => {
         headers: {
           "X-GitHub-Api-Version": "2022-11-28",
         },
-      }
+      },
     );
 
     for (let key in repoLanguages.data) {
@@ -40,7 +40,9 @@ export const getLanguages = async () => {
   }
 
   languages = Object.fromEntries(
-    Object.entries(languages).sort(([, a], [, b]) => b - a)
+    Object.entries(languages)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 9),
   );
 
   return languages;

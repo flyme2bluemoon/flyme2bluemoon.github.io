@@ -19,10 +19,10 @@ const Repo = ({
   return (
     <div
       key={full_name}
-      className="w-96 h-50 bg-white rounded-lg border border-gray-200 shadow-lg dark:shadow-2xl dark:bg-gray-800 dark:border-gray-700 overflow-hidden"
+      className="h-50 w-80 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg lg:w-96 dark:border-gray-700 dark:bg-gray-800 dark:shadow-2xl"
     >
       <div className="p-5">
-        <h2 className="mb-2 text-xl font-semibold tracking-tight text-blue-600 hover:underline dark:text-blue-500 flex items-center">
+        <h2 className="mb-2 flex items-center text-xl font-semibold tracking-tight text-blue-600 hover:underline dark:text-blue-500">
           <svg
             aria-hidden="true"
             height="16"
@@ -41,7 +41,7 @@ const Repo = ({
             {name}
           </Link>
         </h2>
-        <p className="mb-3 text-gray-600 dark:text-gray-400 line-clamp-2 text-ellipsis">
+        <p className="mb-3 line-clamp-2 text-ellipsis text-gray-600 dark:text-gray-400">
           {description}
         </p>
         {language && (

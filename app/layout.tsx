@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-black dark:text-white bg-gradient-to-b from-transparent to-gray-100 dark:to-gray-950`}
+        className={`${inter.className} bg-gray-50 bg-gradient-to-b from-transparent to-gray-100 text-black dark:bg-gray-900 dark:to-gray-950 dark:text-white`}
       >
         <Script id="theme-flash" strategy="beforeInteractive">
           {`

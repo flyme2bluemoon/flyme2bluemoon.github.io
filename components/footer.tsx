@@ -3,17 +3,17 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="py-8 bg-blue-400 dark:bg-blue-900">
-        <div className="flex space-x-2 justify-center">
+      <div className="mt-4 bg-blue-400 py-8 dark:bg-blue-900">
+        <div className="flex justify-center space-x-2">
           <Link
-            className="hover:bg-blue-300 dark:hover:bg-blue-700 p-2 rounded-lg"
+            className="rounded-lg p-2 hover:bg-blue-300 dark:hover:bg-blue-700"
             href="https://twitter.com/flyme2bluemoon"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
           >
             <svg
-              className="w-6 h-6 dark:fill-white"
+              className="h-6 w-6 dark:fill-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
             >
@@ -21,14 +21,14 @@ const Footer = () => {
             </svg>
           </Link>
           <Link
-            className="hover:bg-blue-300 dark:hover:bg-blue-700 p-2 rounded-lg"
+            className="rounded-lg p-2 hover:bg-blue-300 dark:hover:bg-blue-700"
             href="https://instagram.com/flyme2bluemoon"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
             <svg
-              className="w-6 h-6 dark:fill-white"
+              className="h-6 w-6 dark:fill-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
             >
@@ -39,14 +39,14 @@ const Footer = () => {
             <svg className="w-6 h-6 dark:fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
           </Link> */}
           <Link
-            className="hover:bg-blue-300 dark:hover:bg-blue-700 p-2 rounded-lg"
+            className="rounded-lg p-2 hover:bg-blue-300 dark:hover:bg-blue-700"
             href="https://github.com/flyme2bluemoon"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Github"
           >
             <svg
-              className="w-6 h-6 dark:fill-white"
+              className="h-6 w-6 dark:fill-white"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 496 512"
             >
@@ -58,9 +58,9 @@ const Footer = () => {
           </Link> */}
         </div>
       </div>
-      <footer className="p-4 bg-white rounded-t-lg shadow md:px-6 md:py-8 dark:bg-gray-800 border-b-8 border-blue-400 dark:border-blue-800">
+      <footer className="rounded-t-lg border-b-8 border-blue-400 bg-white p-4 shadow md:px-6 md:py-8 dark:border-blue-800 dark:bg-gray-800">
         <div className="sm:flex sm:items-start sm:justify-between md:mx-16 lg:mx-32 xl:mx-48">
-          <div className="flex items-center mb-4 sm:mb-0">
+          <div className="mb-4 flex items-center sm:mb-0">
             <img
               src="/images/logo.png"
               className="mr-3 rounded-lg"
@@ -68,19 +68,19 @@ const Footer = () => {
               height="40px"
               alt=""
             />
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
               Matthew Shen
             </span>
           </div>
-          <div className="sm:mb-3 sm:max-w-xs p-4 rounded-lg bg-blue-100 dark:bg-blue-900">
-            <h1 className="font-semibold text-lg">Get in touch</h1>
+          <div className="rounded-lg bg-blue-100 p-4 sm:mb-3 sm:max-w-xs dark:bg-blue-900">
+            <h1 className="text-lg font-semibold">Get in touch</h1>
             <p className="text-sm">
               For all inquires, the best way to get in touch with me is via
               email
             </p>
             <Link
               href="mailto:matthew.zh.shen@gmail.com"
-              className="text-blue-700 hover:text-blue-500 dark:text-blue-200 dark:hover:text-blue-50 font-serif"
+              className="font-serif text-blue-700 hover:text-blue-500 dark:text-blue-200 dark:hover:text-blue-50"
             >
               matthew.zh.shen@gmail.com
             </Link>
@@ -94,8 +94,8 @@ const Footer = () => {
             </li>
           </ul> */}
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400 mb-1">
+        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
+        <span className="mb-1 block text-sm text-gray-500 sm:text-center dark:text-gray-400">
           Made in Toronto and Montreal
         </span>
         <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">

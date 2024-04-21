@@ -39,20 +39,24 @@ const Projects = async () => {
   }
 
   return (
-    <div className="max-w-[1280px] mx-auto">
+    <div className="mx-auto max-w-[1280px] px-10 xl:px-0">
       <div className="mb-12">
-        <h1 className="text-6xl font-bold py-6">Projects</h1>
-        <h2 className="text-5xl font-semibold py-6">
+        <h1 className="py-4 text-5xl font-bold sm:py-6 sm:text-6xl">
+          Projects
+        </h1>
+        <h2 className="py-4 text-4xl font-semibold sm:py-6 sm:text-5xl">
           Pinned &#x2728; {/* sparkles emoji */}
         </h2>
         <div className="flex flex-col items-center">
-          <div className="flex flex-wrap gap-10 justify-center pb-10">
+          <div className="flex flex-wrap justify-center gap-10 sm:pb-5">
             {pinGallery}
           </div>
         </div>
-        <h2 className="text-5xl font-semibold py-6">All Repositories</h2>
+        <h2 className="py-4 text-4xl font-semibold sm:py-6 sm:text-5xl">
+          All Repositories
+        </h2>
         <div className="flex flex-col items-center">
-          <div className="flex flex-wrap gap-10 justify-center pb-10">
+          <div className="flex flex-wrap justify-center gap-10 sm:pb-5">
             {gallery}
           </div>
         </div>

@@ -18,9 +18,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="rounded-b bg-white px-2 py-2.5 shadow-lg sm:px-4 dark:bg-gray-800">
-      <div className="container mx-auto flex flex-wrap items-center justify-between">
-        <Link href="/" className="flex">
+    <nav className="rounded-b bg-white px-2 py-2.5 shadow-lg md:px-4 dark:bg-gray-800">
+      <div className="mx-auto flex flex-wrap items-center justify-between">
+        <Link
+          href="/"
+          className="flex"
+          onClick={() => {
+            setMenuExpanded(false);
+          }}
+        >
           <img
             src="/images/logo.png"
             className="mr-3 rounded-lg"
@@ -33,20 +39,22 @@ const Navbar = () => {
           </span>
         </Link>
         <div className="flex-grow" />
-
         <div
           className={`${
             menuExpanded ? "" : "hidden"
           } order-last w-full md:order-none md:block md:w-auto`}
           id="mobile-menu"
         >
-          <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
+          <ul className="mt-4 flex flex-col divide-y md:mt-0 md:flex-row md:space-x-6 md:divide-none md:text-sm md:font-medium lg:space-x-8">
             {Object.entries(links).map(([text, href]) => {
               return (
                 <li key={text}>
                   <Link
                     href={href}
-                    className="block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-white"
+                    onClick={() => {
+                      setMenuExpanded(false);
+                    }}
+                    className="block rounded px-3 py-2 text-gray-700 hover:bg-gray-50 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-white"
                   >
                     {text}
                   </Link>
@@ -56,7 +64,7 @@ const Navbar = () => {
           </ul>
         </div>
         <button
-          className="theme-toggle ml-2 aspect-square h-8 w-8 cursor-pointer touch-manipulation rounded-md border-0 bg-none p-1 outline-offset-[5px] [-webkit-tap-highlight-color:transparent] hover:bg-gray-100 focus:outline-none md:ml-6 dark:text-gray-400 dark:hover:bg-gray-700"
+          className="theme-toggle ml-2 aspect-square h-8 w-8 cursor-pointer touch-manipulation rounded-md border-0 bg-none p-1 outline-offset-[5px] [-webkit-tap-highlight-color:transparent] hover:bg-gray-100 md:ml-6 dark:text-gray-400 dark:hover:bg-gray-700"
           id="theme-toggle"
           title="Toggles light and dark theme"
           aria-label="auto"
@@ -112,9 +120,8 @@ const Navbar = () => {
           </svg>
         </button>
         <button
-          id=""
           type="button"
-          className="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="ml-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 md:hidden dark:text-gray-400 dark:hover:bg-gray-700"
           onClick={() => {
             setMenuExpanded(!menuExpanded);
           }}
