@@ -97,7 +97,7 @@ const About = () => {
             <li>
               <Link
                 href="https://certificates.cs50.io/1076cf75-9267-4bb9-8fc8-d2cbff4b1885.pdf"
-                className="font-normal text-inherit decoration-1 hover:text-blue-700 hover:decoration-2 dark:hover:text-white"
+                className="font-normal text-blue-800 no-underline hover:underline dark:text-blue-300"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -141,7 +141,7 @@ const About = () => {
                 <span className="font-bold">
                   <Link
                     href="http://luc.devroye.org/252.html"
-                    className="font-bold text-blue-900 no-underline hover:underline dark:text-blue-200"
+                    className="font-bold text-blue-800 no-underline hover:underline dark:text-blue-300"
                   >
                     COMP 252 - Honours Algorithms and Data Structures
                   </Link>
