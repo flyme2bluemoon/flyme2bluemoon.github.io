@@ -18,7 +18,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="rounded-b bg-white px-2 py-2.5 shadow-lg md:px-4 dark:bg-gray-800">
+    <nav className="rounded-b bg-white px-2 py-2.5 shadow-lg md:px-6 dark:bg-gray-800">
       <div className="mx-auto flex flex-wrap items-center justify-between">
         <Link
           href="/"
