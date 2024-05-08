@@ -40,26 +40,45 @@ const About = () => {
         </div>
         <div>
           <h2 className="text-3xl font-bold">Experience</h2>
-          <ul className="list-disc">
+          <ul className="list-disc space-y-5 leading-normal">
             <li>
-              <span className="font-semibold">COMP 250 TEAM Mentor</span>
-              <br />
-              Recipient of Tomlinson Engagement Award for Mentoring for COMP 250
-              Introduction to Computer Science
-              <br />
-              <span className="font-light">Sept 2023 - Present</span>
+              <div className="font-semibold">
+                Conversational User Interfaces Research Assistant
+              </div>
+              <div className="font-light">
+                Dahdaleh Institute for Global Health Research, York University
+                &ndash; Toronto, ON, Canada
+              </div>
+              <div className="my-1">
+                Exploration and development of a Conversational User Interface
+                for people living with dementia.
+              </div>
+              <div className="font-light">May 2024 - Present</div>
             </li>
             <li>
-              <span className="font-semibold">
-                Crew Member at McGill Summer Academy
-              </span>
-              <br />
-              Acted as a role model, supervised students aged 15-17 and led
-              activities while ensuring their health, safety, and well-being
-              <br />
-              <span className="font-light">July 2023</span>
+              <div className="font-semibold">COMP 250 TEAM Mentor</div>
+              <div className="font-light">
+                School of Computer Science, McGill University &ndash; Montreal,
+                QC, Canada
+              </div>
+              <div className="my-1">
+                Recipient of Tomlinson Engagement Award for Mentoring for COMP
+                250 Introduction to Computer Science.
+              </div>
+              <div className="font-light">Sept 2023 - April 2024</div>
             </li>
             <li>
+              <div className="font-semibold">Crew Member</div>
+              <div className="font-light">
+                McGill Summer Academy &ndash; Montreal, QC, Canada
+              </div>
+              <div className="my-1">
+                Acted as a role model, supervised students aged 15-17 and led
+                activities while ensuring their health, safety, and well-being.
+              </div>
+              <div className="font-light">July 2023</div>
+            </li>
+            {/* <li>
               <span className="font-semibold">
                 President of Coding Club at Alexander Mackenzie HS
               </span>
@@ -72,7 +91,7 @@ const About = () => {
               </span>
               <br />
               <span className="font-light">Sept 2021 - June 2022</span>
-            </li>
+            </li> */}
           </ul>
         </div>
         <div>
