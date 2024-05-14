@@ -8,7 +8,7 @@ type Props = {
 
 export const generateMetadata = async (
   { params }: Props,
-  parent: ResolvingMetadata
+  parent: ResolvingMetadata,
 ): Promise<Metadata> => {
   const post = await getPost(params.slug);
   return {
@@ -25,8 +25,8 @@ const Post = async ({ params }: Props) => {
   const post = await getPost(params.slug);
 
   return (
-    <div className="lg:w-3/5 md:w-4/5 mx-auto px-3 my-8">
-      <h1 className="font-bold text-4xl md:text-6xl py-5">{post.title}</h1>
+    <div className="mx-auto my-8 px-3 md:w-4/5 lg:w-3/5">
+      <h1 className="py-5 text-3xl font-bold md:text-4xl">{post.title}</h1>
       <div>
         <div>
           <div className="flex">
@@ -65,7 +65,7 @@ const Post = async ({ params }: Props) => {
           </div>
         </div>
         {/* {JSON.stringify(data.mdx.tableOfContents)} */}
-        <div className="pb-5 prose prose-xl dark:prose-invert max-w-none prose-code:before:content-none prose-code:after:content-none">
+        <div className="prose max-w-none pb-5 dark:prose-invert prose-code:before:content-none prose-code:after:content-none">
           <div dangerouslySetInnerHTML={{ __html: post.contentHtml }}></div>
         </div>
         <div>
@@ -74,7 +74,7 @@ const Post = async ({ params }: Props) => {
             <Link
               href={`/blog/tags/${tag.toLowerCase().replace(" ", "-")}/`}
               key={tag.toLowerCase()}
-              className="underline mr-1"
+              className="mr-1 underline"
             >
               {tag}
             </Link>
