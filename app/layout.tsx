@@ -2,10 +2,10 @@ import "@/app/globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Radio_Canada } from "next/font/google";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const defaultFont = Radio_Canada({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Matthew Shen",
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} bg-gray-50 bg-gradient-to-b from-transparent to-gray-100 text-black dark:bg-gray-900 dark:to-gray-950 dark:text-white`}
+        className={`${defaultFont.className} bg-gray-50 bg-gradient-to-b from-transparent to-gray-100 text-black dark:bg-gray-900 dark:to-gray-950 dark:text-white`}
       >
         <Script id="theme-flash" strategy="beforeInteractive">
           {`

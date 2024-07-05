@@ -35,24 +35,24 @@ const Home = () => {
         href="/images/topography-dark.svg"
         type="image/svg+xml"
       ></link>
-      <div className="h-[720px] flex justify-center align-center flex-col bg-topography-light dark:bg-topography-dark">
+      <div className="align-center flex h-[720px] flex-col justify-center bg-topography-light dark:bg-topography-dark">
         <div className="mx-10 sm:mx-24 lg:mx-32 xl:mx-60">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold py-1">
+          <h1 className="py-1 text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-6xl">
             {greeting}&nbsp;
             <noscript>{myGreeting}</noscript>
           </h1>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold py-1">
+          <h1 className="py-1 text-5xl font-bold sm:text-6xl md:text-7xl lg:text-8xl">
             Matthew Shen
             <span className="text-blue-700 dark:text-blue-600">.</span>
           </h1>
         </div>
       </div>
       <div className="p-8 md:p-36">
-        <div className="max-w-[720px] mx-auto">
-          <h2 className="text-center font-bold text-4xl pb-8">About Matthew</h2>
-          <p className="text-center text-gray-800 dark:text-gray-200 leading-relaxed">
+        <div className="mx-auto max-w-[720px]">
+          <h2 className="pb-8 text-center text-4xl font-bold">About Matthew</h2>
+          <p className="text-center leading-relaxed text-gray-800 dark:text-gray-200">
             Matthew is a Computer Science and Biology student originally from
-            Toronto and currently studying in Montreal. He has experience
+            Toronto and currently studying in Montréal. He has experience
             competing in competitive programming competitions such as{" "}
             <Link
               className="text-blue-500 hover:text-blue-400 dark:text-blue-400 dark:hover:text-blue-300"

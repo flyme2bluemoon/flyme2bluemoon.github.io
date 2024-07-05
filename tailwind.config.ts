@@ -19,7 +19,7 @@ const config: Config = {
         "topography-dark": "url('/images/topography-dark.svg')",
       },
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["Radio Canada", ...defaultTheme.fontFamily.sans],
         serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
         mono: ['"Fira Code"', ...defaultTheme.fontFamily.mono],
       },

@@ -96,7 +96,7 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
         <span className="mb-1 block text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          Made in Toronto and Montreal
+          Made in Toronto and Montréal
         </span>
         <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
           &copy; 2024 Matthew Shen

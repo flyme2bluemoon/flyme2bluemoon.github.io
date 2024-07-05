@@ -45,6 +45,7 @@ const Post = async ({ params }: Props) => {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
+                timeZone: "UTC",
               })}
             </span>
             {/* &middot; */}

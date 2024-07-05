@@ -15,7 +15,7 @@ const About = () => {
           &#x1F468;&#x200D;&#x1F393; About Me
         </h1>
         <div className="mx-auto max-w-6xl px-3 text-xl sm:text-3xl">
-          I am a current student at McGill University in Montreal, Quebec,
+          I am a current student at McGill University in Montréal, Quebec,
           Canada pursuing a Bachelor of Science in Computer Science and Biology
         </div>
         <hr className="m-10 mx-auto w-48 border-2 border-blue-400 dark:border-blue-800" />
@@ -25,7 +25,7 @@ const About = () => {
           <h2 className="text-3xl font-bold">Education</h2>
           <ul className="list-disc">
             <li>
-              <b>McGill University - Montreal, QC, Canada</b> <br />
+              <b>McGill University - Montréal, QC, Canada</b> <br />
               B.Sc. Honours Computer Science and Biology <br />
               <span className="font-light">Sept 2022 - April 2026</span>
             </li>
@@ -58,7 +58,7 @@ const About = () => {
             <li>
               <div className="font-semibold">COMP 250 TEAM Mentor</div>
               <div className="font-light">
-                School of Computer Science, McGill University &ndash; Montreal,
+                School of Computer Science, McGill University &ndash; Montréal,
                 QC, Canada
               </div>
               <div className="my-1">
@@ -70,7 +70,7 @@ const About = () => {
             <li>
               <div className="font-semibold">Crew Member</div>
               <div className="font-light">
-                McGill Summer Academy &ndash; Montreal, QC, Canada
+                McGill Summer Academy &ndash; Montréal, QC, Canada
               </div>
               <div className="my-1">
                 Acted as a role model, supervised students aged 15-17 and led
