@@ -48,7 +48,7 @@ const About = () => {
               <div className="font-light">
                 <a
                   href="https://sats.lab.yorku.ca/"
-                  className="text-blue-800 no-underline hover:underline dark:text-blue-300"
+                  className="font-light text-blue-800 no-underline hover:underline dark:text-blue-300"
                 >
                   Social and Technological Systems Lab
                 </a>
