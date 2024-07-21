@@ -21,7 +21,7 @@ const config: Config = {
       fontFamily: {
         sans: ["Radio Canada", ...defaultTheme.fontFamily.sans],
         serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
-        mono: ['"Fira Code"', ...defaultTheme.fontFamily.mono],
+        mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
       },
     },
   },
