@@ -46,12 +46,20 @@ const About = () => {
                 Conversational User Interfaces Research Assistant
               </div>
               <div className="font-light">
-                Dahdaleh Institute for Global Health Research, York University
-                &ndash; Toronto, ON, Canada
+                <a
+                  href="https://sats.lab.yorku.ca/"
+                  className="text-blue-800 no-underline hover:underline dark:text-blue-300"
+                >
+                  Social and Technological Systems Lab
+                </a>
+                , York University &ndash; Toronto, ON, Canada
               </div>
               <div className="my-1">
                 Exploration and development of a Conversational User Interface
                 for people living with dementia.
+                <br />
+                Deployed AI large language models with function/tool using a
+                Next.js and Flask web application.
               </div>
               <div className="font-light">May 2024 - Present</div>
             </li>
@@ -64,6 +72,13 @@ const About = () => {
               <div className="my-1">
                 Recipient of Tomlinson Engagement Award for Mentoring for COMP
                 250 Introduction to Computer Science.
+                <br />
+                Led weekly tutorials to review Java, Object-Oriented
+                Programming, Data Structures and Algorithms concepts and
+                exercises.
+                <br />
+                Held weekly office hours to help students with their assignments
+                and answer their questions about computer science concepts.
               </div>
               <div className="font-light">Sept 2023 - April 2024</div>
             </li>
@@ -98,8 +113,20 @@ const About = () => {
           <h2 className="text-3xl font-bold">
             Technical Skills and Certificates
           </h2>
-          <ol className="list-decimal">
+          <ul className="list-disc">
             <li>
+              <b>Languages:</b> C/C++, Java, Python, TypeScript/JavaScript, SQL,
+              Shell Scripting
+            </li>
+            <li>
+              <b>Frameworks and Tools:</b> Next.js, React, Flask, Azure, Pandas,
+              NumPy, Matplotlib, MySQL, Git
+            </li>
+            <li>
+              <b>Other skills and certificates:</b> Data structures and
+              algorithms, Cybersecurity, Harvard CS50 certificate
+            </li>
+            {/* <li>
               General-purpose programming languages including C, C++, Java, and
               Python
             </li>
@@ -122,10 +149,10 @@ const About = () => {
               >
                 Harvard University CS50x Certificate
               </Link>
-            </li>
-          </ol>
+            </li> */}
+          </ul>
         </div>
-        <div>
+        {/* <div>
           <h2 className="text-3xl font-bold">
             What I&apos;m Currently Working On
           </h2>
@@ -138,11 +165,11 @@ const About = () => {
               My latest major coding project is this website which is built
               using Gatsby and Tailwind CSS and hosted on Github Pages.
             </li>
-            {/* <ul>
+            <ul>
               <li>On this website, I plan to blog about my interests such as technology, the humanities, and productivity/lifestyle.</li>
-            </ul> */}
+            </ul>
           </ol>
-        </div>
+        </div> */}
         <div>
           <h2 className="mb-2 text-3xl font-bold">Computer Science Courses</h2>
           <div className="font-semibold">

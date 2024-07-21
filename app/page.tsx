@@ -50,8 +50,26 @@ const Home = () => {
       <div className="p-8 md:p-36">
         <div className="mx-auto max-w-[720px]">
           <h2 className="pb-8 text-center text-4xl font-bold">About Matthew</h2>
-          <p className="text-center leading-relaxed text-gray-800 dark:text-gray-200">
-            Matthew is a Computer Science and Biology student originally from
+          <div className="space-y-4 text-center leading-relaxed text-gray-800 dark:text-gray-200">
+            <div>
+              Matthew is a Computer Science and Biology student originally from
+              Toronto and currently studying at McGill University in Montréal.
+              He has experience with full-stack development as well as deploying
+              to both local and cloud servers. He has also worked on research of
+              the use of AI and large language models as a tool to help people
+              with accessibility needs. In his free time, he also enjoys
+              Competitive Programming and Capture the Flag competitions. His
+              other interests include aviation and photography.
+            </div>
+            <div>
+              <Link
+                href="/about/"
+                className="font-bold text-blue-800 no-underline hover:underline dark:text-blue-300"
+              >
+                Click here to read more about Matthew
+              </Link>
+            </div>
+            {/* Matthew is a Computer Science and Biology student originally from
             Toronto and currently studying in Montréal. He has experience
             competing in competitive programming competitions such as{" "}
             <Link
@@ -93,8 +111,8 @@ const Home = () => {
             working on frontend and backend web development projects using
             technologies such as Next.js, Firebase, Flask and Laravel.
             Furthermore, he enjoys participating in Cybersecurity Capture the
-            Flag events.
-          </p>
+            Flag events. */}
+          </div>
         </div>
       </div>
     </div>
