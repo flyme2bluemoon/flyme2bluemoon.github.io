@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const defaultTheme = require("tailwindcss/defaultTheme");
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   darkMode: "selector",
@@ -19,9 +19,9 @@ const config: Config = {
         "topography-dark": "url('/images/topography-dark.svg')",
       },
       fontFamily: {
-        sans: ["Radio Canada", ...defaultTheme.fontFamily.sans],
-        serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
-        mono: ['"IBM Plex Mono"', ...defaultTheme.fontFamily.mono],
+        sans: ["var(--font-next-sans)", ...defaultTheme.fontFamily.sans],
+        serif: ["var(--font-next-serif)", ...defaultTheme.fontFamily.serif],
+        mono: ["var(--font-next-mono)", ...defaultTheme.fontFamily.mono],
       },
     },
   },
