@@ -78,12 +78,13 @@ const Footer = () => {
               For all inquires, the best way to get in touch with me is via
               email
             </p>
-            <Link
+            <a
               href="mailto:matthew.zh.shen@gmail.com"
               className="font-serif text-blue-700 hover:text-blue-500 dark:text-blue-200 dark:hover:text-blue-50"
+              target="_blank"
             >
               matthew.zh.shen@gmail.com
-            </Link>
+            </a>
           </div>
           {/* <ul className="flex flex-wrap items-center my-6 sm:mb-0">
             <li>
