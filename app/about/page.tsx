@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Matthew Shen - About",
@@ -26,15 +25,14 @@ const About = () => {
           <ul className="list-disc">
             <li>
               <b>McGill University - Montréal, QC, Canada</b> <br />
-              B.Sc. Honours Computer Science and Biology <br />
-              <span className="font-light">Sept 2022 - April 2026</span>
+              Bachelor of Science, Honours Computer Science and Biology | GPA:
+              3.64/4.00 <br />
+              <span className="font-light">Aug 2022 -- Oct 2026</span>
             </li>
             <li>
-              <b>Alexander Mackenzie High School - Richmond Hill, ON, Canada</b>{" "}
-              <br />
-              Ontario Secondary School Diploma &amp; International Baccalaureate
-              Diploma <br />
-              <span className="font-light">Sept 2018 - June 2022</span>
+              <b>Nanyang Technological University - Singapore</b> <br />
+              Exchange Semester <br />
+              <span className="font-light">Jan -- May 2026</span>
             </li>
           </ul>
         </div>
@@ -42,114 +40,134 @@ const About = () => {
           <h2 className="text-3xl font-bold">Experience</h2>
           <ul className="list-disc space-y-5 leading-normal">
             <li>
-              <div className="font-semibold">
-                Conversational User Interfaces Research Assistant
-              </div>
+              <div className="font-semibold">Data Science and AI Intern</div>
               <div className="font-light">
-                <a
-                  href="https://sats.lab.yorku.ca/"
-                  className="font-light text-blue-800 no-underline hover:underline dark:text-blue-300"
-                >
-                  Social and Technological Systems Lab
-                </a>
-                , York University &ndash; Toronto, ON, Canada
+                Chime Biologics &ndash; Wuhan, Hubei, China
               </div>
-              <div className="my-1">
-                Exploration and development of a Conversational User Interface
-                for people living with dementia.
-                <br />
-                Deployed AI large language models with function/tool using a
-                Next.js and Flask web application.
-              </div>
-              <div className="font-light">May 2024 - Present</div>
+              <ul className="my-1 list-disc">
+                <li>
+                  Designed and developed an on-premise pipeline to convert Good
+                  Manufacturing Practices (GMP) batch production records into
+                  structured, queryable data for analytics, visualizations, and
+                  AI agents.
+                </li>
+                <li>
+                  Architected a workflow combining deterministic parsing and AI
+                  to derive typed schemas from controlled Word templates, map
+                  OCR-extracted values from scanned records into those schemas,
+                  and persist the structured output in a relational data model.
+                </li>
+                <li>
+                  Evaluated and integrated local vision and language models
+                  including DeepSeek, MinerU, PaddleOCR-VL, and Qwen to improve
+                  extraction accuracy and reliability for GMP batch records.
+                </li>
+              </ul>
+              <div className="font-light">Aug 2026 -- Present</div>
             </li>
             <li>
-              <div className="font-semibold">COMP 250 TEAM Mentor</div>
+              <div className="font-semibold">Research Assistant</div>
+              <div className="font-light">
+                Shared Reality Lab, Faculty of Engineering, McGill University
+                &ndash; Montréal, QC, Canada
+              </div>
+              <ul className="my-1 list-disc">
+                <li>
+                  Developed a full-stack prototype using Python, TypeScript,
+                  Next.js, and Bun that leveraged LLMs to automatically tag
+                  natural language messages with Controller-Pilot Datalink
+                  Communications (CPDLC) markup.
+                </li>
+                <li>
+                  Designed human factors and HCI experiments and planned user
+                  testing with controllers and pilots to evaluate usability,
+                  performance, situational awareness, accuracy, and error
+                  recovery.
+                </li>
+              </ul>
+              <div className="font-light">May 2025 -- Dec 2025</div>
+            </li>
+            <li>
+              <div className="font-semibold">COMP 273 Course Assistant</div>
               <div className="font-light">
                 School of Computer Science, McGill University &ndash; Montréal,
                 QC, Canada
               </div>
-              <div className="my-1">
-                Recipient of Tomlinson Engagement Award for Mentoring for COMP
-                250 Introduction to Computer Science.
-                <br />
-                Led weekly tutorials to review Java, Object-Oriented
-                Programming, Data Structures and Algorithms concepts and
-                exercises.
-                <br />
-                Held weekly office hours to help students with their assignments
-                and answer their questions about computer science concepts.
-              </div>
-              <div className="font-light">Sept 2023 - April 2024</div>
+              <ul className="my-1 list-disc">
+                <li>
+                  Helped students understand digital circuits, assembly
+                  programming, and computer hardware architecture.
+                </li>
+              </ul>
+              <div className="font-light">Feb 2025 -- Apr 2025</div>
             </li>
             <li>
-              <div className="font-semibold">Crew Member</div>
+              <div className="font-semibold">Research Assistant</div>
               <div className="font-light">
-                McGill Summer Academy &ndash; Montréal, QC, Canada
+                Social and Technological Systems Lab, AMPD, York University
+                &ndash; Toronto, ON, Canada
               </div>
-              <div className="my-1">
-                Acted as a role model, supervised students aged 15-17 and led
-                activities while ensuring their health, safety, and well-being.
-              </div>
-              <div className="font-light">July 2023</div>
-            </li>
-            {/* <li>
-              <span className="font-semibold">
-                President of Coding Club at Alexander Mackenzie HS
-              </span>
-              <br />
-              <span className="font-light">Sept 2021 - June 2022</span>
+              <ul className="my-1 list-disc">
+                <li>
+                  Co-designed and developed CogniPrompt, applying human-AI
+                  interaction principles to a conversational user interface
+                  designed to assist people with dementia with daily tasks,
+                  memory, and social companionship.
+                </li>
+                <li>
+                  Integrated a locally hosted Llama 3.1 large language model
+                  with function calling and retrieval-augmented generation.
+                </li>
+                <li>
+                  Developed a full-stack web application using Next.js,
+                  WebSockets, and Flask, deployed on Ubuntu Linux with a MySQL
+                  database.
+                </li>
+              </ul>
+              <div className="font-light">May 2024 -- Dec 2024</div>
             </li>
             <li>
-              <span className="font-semibold">
-                VP of Operations of Math Club at Alexander Mackenzie HS
-              </span>
-              <br />
-              <span className="font-light">Sept 2021 - June 2022</span>
-            </li> */}
+              <div className="font-semibold">
+                COMP 250 and COMP 251 TEAM Mentor
+              </div>
+              <div className="font-light">
+                School of Computer Science, McGill University &ndash; Montréal,
+                QC, Canada
+              </div>
+              <ul className="my-1 list-disc">
+                <li>
+                  Led weekly tutorials and office hours covering Java,
+                  object-oriented programming, data structures, algorithms, and
+                  algorithmic complexity for COMP 250 and COMP 251.
+                </li>
+              </ul>
+              <div className="font-light">Sep 2023 -- Dec 2024</div>
+            </li>
           </ul>
         </div>
         <div>
-          <h2 className="text-3xl font-bold">
-            Technical Skills and Certificates
-          </h2>
+          <h2 className="text-3xl font-bold">Technical Skills</h2>
           <ul className="list-disc">
             <li>
-              <b>Languages:</b> C/C++, Java, Python, TypeScript/JavaScript, SQL,
-              Shell Scripting
+              <b>Languages:</b> Python, TypeScript/JavaScript, C/C++, Java, SQL,
+              Shell, OCaml
             </li>
             <li>
-              <b>Frameworks and Tools:</b> Next.js, React, Flask, Azure, Pandas,
-              NumPy, Matplotlib, MySQL, Git
+              <b>Frameworks &amp; Libraries:</b> React, Next.js, Flask, Hono,
+              Pandas, NumPy, Matplotlib, Tailwind CSS
             </li>
             <li>
-              <b>Other skills and certificates:</b> Data structures and
-              algorithms, Cybersecurity, Harvard CS50 certificate
-            </li>
-            {/* <li>
-              General-purpose programming languages including C, C++, Java, and
-              Python
+              <b>Databases &amp; Storage:</b> MySQL, SQLite, Cloudflare D1,
+              Cloudflare R2
             </li>
             <li>
-              Front and backend Javascript/Typescript development with
-              frameworks suchs as React, Next.js and Gatsby
+              <b>Developer Tools:</b> Git, Docker, Linux, Vercel, Cloudflare
+              Workers, GitHub Actions, Azure
             </li>
-            <li>Familiarity with Unix and Linux systems and shell scripting</li>
             <li>
-              Databases including SQL databases such as MySQL and NoSQL
-              databases such as MongoDB
+              <b>AI/ML:</b> LLM APIs, Retrieval-Augmented Generation, Tool
+              Calling, MCP, Local LLM Deployment
             </li>
-            <li>Understanding of data structures and algorithms</li>
-            <li>
-              <Link
-                href="https://certificates.cs50.io/1076cf75-9267-4bb9-8fc8-d2cbff4b1885.pdf"
-                className="font-normal text-blue-800 no-underline hover:underline dark:text-blue-300"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Harvard University CS50x Certificate
-              </Link>
-            </li> */}
           </ul>
         </div>
         {/* <div>
@@ -170,118 +188,6 @@ const About = () => {
             </ul>
           </ol>
         </div> */}
-        <div>
-          <h2 className="mb-2 text-3xl font-bold">Computer Science Courses</h2>
-          <div className="font-semibold">
-            <ul className="list-disc">
-              <li>
-                <span className="font-bold">
-                  COMP 250 - Introduction to Computer Science
-                </span>
-                <br />
-                <span className="font-light">
-                  Java, Data Structures, and Algorithms
-                </span>
-              </li>
-              <li>
-                <span className="font-bold">
-                  <Link
-                    href="http://luc.devroye.org/252.html"
-                    className="font-bold text-blue-800 no-underline hover:underline dark:text-blue-300"
-                  >
-                    COMP 252 - Honours Algorithms and Data Structures
-                  </Link>
-                </span>
-                <br />
-                <span className="font-light">
-                  Design and analysis of data structures and algorithms. Proof
-                  of correctness of algorithms and determining their
-                  computational complexity.
-                </span>
-              </li>
-              <li>
-                <span className="font-bold">
-                  COMP 206 - Introduction to Software Systems
-                </span>
-                <br />
-                <span className="font-light">Unix, Bash, and C</span>
-              </li>
-              <li>
-                <span className="font-bold">
-                  COMP 273 - Introduction to Computer Systems
-                </span>
-                <br />
-                <span className="font-light">
-                  Number Representations, Circuits, and MIPS Assembly
-                </span>
-              </li>
-            </ul>
-          </div>
-          <h2 className="mb-2 text-3xl font-bold">Mathematics Courses</h2>
-          <div className="font-semibold">
-            <ul className="list-disc">
-              <li>
-                <span className="px-1 font-bold">
-                  MATH 133 - Linear Algebra and Geometry
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">MATH 140 - Calculus 1</span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">MATH 141 - Calculus 2</span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">
-                  MATH 240 - Discrete Structures
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">MATH 222 - Calculus 3</span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">
-                  MATH 223 - Linear Algebra
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">MATH 323 - Probability</span>
-              </li>
-            </ul>
-          </div>
-          <h2 className="mb-2 text-3xl font-bold">
-            Biology and Science Courses
-          </h2>
-          <div className="font-semibold">
-            <ul className="list-disc">
-              <li>
-                <span className="px-1 font-bold">
-                  BIOL 111 - Organismal Biology
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">
-                  BIOL 112 - Cell and Molecular Biology
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">
-                  CHEM 112 - Introductory Organic Chemistry
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">
-                  BIOL 219 - Introduction to Physical Molecular and Cell Biology
-                </span>
-              </li>
-              <li>
-                <span className="px-1 font-bold">
-                  BIOL 202 - Basic Genetics
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
         <div>
           <h2 className="text-3xl font-bold">Languages</h2>
           <ul className="list-disc">
