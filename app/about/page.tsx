@@ -25,14 +25,13 @@ const About = () => {
           <ul className="list-disc">
             <li>
               <b>McGill University - Montréal, QC, Canada</b> <br />
-              Bachelor of Science, Honours Computer Science and Biology | GPA:
-              3.64/4.00 <br />
-              <span className="font-light">Aug 2022 -- Oct 2026</span>
+              Bachelor of Science, Honours Computer Science and Biology <br />
+              <span className="font-light">Aug 2022 - Oct 2026</span>
             </li>
             <li>
               <b>Nanyang Technological University - Singapore</b> <br />
               Exchange Semester <br />
-              <span className="font-light">Jan -- May 2026</span>
+              <span className="font-light">Jan - May 2026</span>
             </li>
           </ul>
         </div>
@@ -44,6 +43,7 @@ const About = () => {
               <div className="font-light">
                 Chime Biologics &ndash; Wuhan, Hubei, China
               </div>
+              <div className="font-light">Aug 2026 - Present</div>
               <ul className="my-1 list-disc">
                 <li>
                   Designed and developed an on-premise pipeline to convert Good
@@ -63,7 +63,6 @@ const About = () => {
                   extraction accuracy and reliability for GMP batch records.
                 </li>
               </ul>
-              <div className="font-light">Aug 2026 -- Present</div>
             </li>
             <li>
               <div className="font-semibold">Research Assistant</div>
@@ -71,6 +70,7 @@ const About = () => {
                 Shared Reality Lab, Faculty of Engineering, McGill University
                 &ndash; Montréal, QC, Canada
               </div>
+              <div className="font-light">May 2025 - Dec 2025</div>
               <ul className="my-1 list-disc">
                 <li>
                   Developed a full-stack prototype using Python, TypeScript,
@@ -85,7 +85,6 @@ const About = () => {
                   recovery.
                 </li>
               </ul>
-              <div className="font-light">May 2025 -- Dec 2025</div>
             </li>
             <li>
               <div className="font-semibold">COMP 273 Course Assistant</div>
@@ -93,13 +92,13 @@ const About = () => {
                 School of Computer Science, McGill University &ndash; Montréal,
                 QC, Canada
               </div>
+              <div className="font-light">Feb 2025 - Apr 2025</div>
               <ul className="my-1 list-disc">
                 <li>
                   Helped students understand digital circuits, assembly
                   programming, and computer hardware architecture.
                 </li>
               </ul>
-              <div className="font-light">Feb 2025 -- Apr 2025</div>
             </li>
             <li>
               <div className="font-semibold">Research Assistant</div>
@@ -107,6 +106,7 @@ const About = () => {
                 Social and Technological Systems Lab, AMPD, York University
                 &ndash; Toronto, ON, Canada
               </div>
+              <div className="font-light">May 2024 - Dec 2024</div>
               <ul className="my-1 list-disc">
                 <li>
                   Co-designed and developed CogniPrompt, applying human-AI
@@ -124,7 +124,6 @@ const About = () => {
                   database.
                 </li>
               </ul>
-              <div className="font-light">May 2024 -- Dec 2024</div>
             </li>
             <li>
               <div className="font-semibold">
@@ -134,6 +133,7 @@ const About = () => {
                 School of Computer Science, McGill University &ndash; Montréal,
                 QC, Canada
               </div>
+              <div className="font-light">Sep 2023 - Dec 2024</div>
               <ul className="my-1 list-disc">
                 <li>
                   Led weekly tutorials and office hours covering Java,
@@ -141,7 +141,6 @@ const About = () => {
                   algorithmic complexity for COMP 250 and COMP 251.
                 </li>
               </ul>
-              <div className="font-light">Sep 2023 -- Dec 2024</div>
             </li>
           </ul>
         </div>
