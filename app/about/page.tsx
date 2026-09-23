@@ -157,8 +157,8 @@ const About = () => {
               Pandas, NumPy, Matplotlib, Tailwind CSS
             </li>
             <li>
-              <b>Databases &amp; Storage:</b> MySQL, SQLite, Cloudflare D1,
-              Cloudflare R2
+              <b>Databases &amp; Storage:</b> MySQL, PostgreSQL, SQLite,
+              Cloudflare D1, Cloudflare R2
             </li>
             <li>
               <b>Developer Tools:</b> Git, Docker, Linux, Vercel, Cloudflare
