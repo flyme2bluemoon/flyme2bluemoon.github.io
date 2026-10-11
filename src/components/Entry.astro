@@ -1,19 +1,28 @@
 ---
 // One item in the Work or Projects list: title row, muted subtitle, bullet points.
 // The `meta` slot fills the right side of the title row (dates, links); the `subtitle`
-// slot can replace the plain-text subtitle when it needs links.
+// slot can replace the plain-text subtitle when it needs links. Set `inlineMeta` to place
+// short meta (e.g. an icon) right after the title instead of at the far side of the row.
 interface Props {
   title: string;
   href?: string;
   subtitle?: string;
   points: string[];
+  inlineMeta?: boolean;
 }
 
-const { title, href, subtitle, points } = Astro.props;
+const { title, href, subtitle, points, inlineMeta = false } = Astro.props;
 ---
 
 <li>
-  <div class="flex flex-col gap-x-4 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between">
+  <div
+    class:list={[
+      "flex",
+      inlineMeta
+        ? "items-baseline gap-x-2"
+        : "flex-col gap-x-4 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between",
+    ]}
+  >
     <h3 class="font-medium">
       {
         href ? (
