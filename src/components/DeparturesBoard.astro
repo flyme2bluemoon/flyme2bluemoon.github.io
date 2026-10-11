@@ -6,6 +6,7 @@ import toronto from "../assets/cities/toronto.png";
 import { flights, flightStats, moonLine } from "../data/flights";
 
 const COLS = 25;
+const DEFAULT_CITY = "SIN";
 
 const cities = [
   {
@@ -87,8 +88,8 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
               type="button"
               class="row grid w-full cursor-pointer gap-[2px] text-left"
               aria-label={cities[i].name}
-              aria-pressed={i === 0 ? "true" : "false"}
-              data-active={i === 0 ? "" : undefined}
+              aria-pressed={cities[i].code === DEFAULT_CITY ? "true" : "false"}
+              data-active={cities[i].code === DEFAULT_CITY ? "" : undefined}
             >
               {[...row.padEnd(COLS)].map((ch) => (
                 <span class="cell" aria-hidden="true">{ch}</span>
@@ -102,16 +103,16 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
 
   <div class="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl bg-rule sm:aspect-[16/10]">
     {
-      cities.map((c, i) => (
+      cities.map((c) => (
         <Image
           src={c.image}
           alt={c.alt}
           widths={[640, 960, 1360]}
           sizes="(min-width: 720px) 680px, 100vw"
-          loading={i === 0 ? "eager" : "lazy"}
+          loading={c.code === DEFAULT_CITY ? "eager" : "lazy"}
           class="photo absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-700 data-active:opacity-100"
           style={`object-position: ${c.position}`}
-          data-active={i === 0 ? "" : undefined}
+          data-active={c.code === DEFAULT_CITY ? "" : undefined}
         />
       ))
     }
@@ -205,7 +206,7 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
     const headsEl = card.querySelector<HTMLElement>(".heads")!;
 
     let mode: "departures" | "log" = "departures";
-    let active = 0;
+    let active = rowEls.findIndex((row) => row.hasAttribute("data-active"));
     let autoplay = true;
     let timer: ReturnType<typeof setInterval> | undefined;
 
