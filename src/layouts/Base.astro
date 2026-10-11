@@ -72,16 +72,18 @@ const nav = [
               ))
             }
           </nav>
-          {/* Hidden until the script below runs, since it does nothing without JavaScript. */}
-          <button
-            type="button"
-            id="theme-toggle"
-            class="cursor-pointer transition-colors hover:text-ink"
-            hidden
-          >
-            <MoonIcon class="size-[18px] dark:hidden" aria-hidden="true" />
-            <SunIcon class="hidden size-[18px] dark:block" aria-hidden="true" />
-          </button>
+          {/* Reserve space while the button waits for JavaScript, so the nav stays put. */}
+          <span class="inline-flex size-[18px] shrink-0">
+            <button
+              type="button"
+              id="theme-toggle"
+              class="cursor-pointer transition-colors hover:text-ink"
+              hidden
+            >
+              <MoonIcon class="size-[18px] dark:hidden" aria-hidden="true" />
+              <SunIcon class="hidden size-[18px] dark:block" aria-hidden="true" />
+            </button>
+          </span>
         </div>
       </header>
 

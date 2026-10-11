@@ -76,7 +76,10 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
     </div>
 
     <div class="board @container">
-      <div class="heads mb-1.5 grid text-[10px] uppercase tracking-wider text-white/60" aria-hidden="true"></div>
+      <div class="heads mb-1.5 grid text-[10px] uppercase tracking-wider text-white/60" aria-hidden="true">
+        <span style="grid-column: 1 / span 15">City</span>
+        <span style="grid-column: 16 / span 10">Remarks</span>
+      </div>
       <div class="flex flex-col gap-1">
         {
           rows.map((row, i) => (
@@ -330,7 +333,6 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
     addEventListener("hashchange", fromHash);
 
     // Boot: roll every flap in from blank.
-    renderHeads();
     if (!reduceMotion) {
       rowEls.forEach((row) =>
         row.querySelectorAll<HTMLElement>(".cell").forEach((c) => (c.textContent = " ")),
