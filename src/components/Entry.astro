@@ -1,0 +1,37 @@
+---
+// One item in the Work or Projects list: title row, muted subtitle, bullet points.
+// The `meta` slot fills the right side of the title row (dates, links); the `subtitle`
+// slot can replace the plain-text subtitle when it needs links.
+interface Props {
+  title: string;
+  href?: string;
+  subtitle?: string;
+  points: string[];
+}
+
+const { title, href, subtitle, points } = Astro.props;
+---
+
+<li>
+  <div class="flex flex-col gap-x-4 sm:flex-row sm:flex-wrap sm:items-baseline sm:justify-between">
+    <h3 class="font-medium">
+      {
+        href ? (
+          <a href={href} class="hover:underline">
+            {title}
+            <span class="text-muted" aria-hidden="true">↗</span>
+          </a>
+        ) : (
+          title
+        )
+      }
+    </h3>
+    <div class="shrink-0 text-sm tabular-nums text-muted">
+      <slot name="meta" />
+    </div>
+  </div>
+  <p class="mt-1 text-sm text-muted"><slot name="subtitle">{subtitle}</slot></p>
+  <ul class="mt-4 space-y-2 text-[15px] leading-relaxed text-ink/80">
+    {points.map((point) => <li>{point}</li>)}
+  </ul>
+</li>

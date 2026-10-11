@@ -1,0 +1,88 @@
+---
+import GitHubIcon from "../assets/icons/github.svg";
+import InstagramIcon from "../assets/icons/instagram.svg";
+import XIcon from "../assets/icons/x.svg";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Matthew Shen studied Computer Science and Biology at McGill University.",
+} = Astro.props;
+
+const pageTitle = title ? `${title} · Matthew Shen` : "Matthew Shen";
+const path = Astro.url.pathname;
+const isHome = path === "/";
+// The same name sits in every page's header; on the home page it is also the page's h1.
+const Name = isHome ? "h1" : "div";
+
+const socials = [
+  { label: "X", href: "https://x.com/flyme2bluemoon", Icon: XIcon },
+  { label: "GitHub", href: "https://github.com/flyme2bluemoon", Icon: GitHubIcon },
+  { label: "Instagram", href: "https://www.instagram.com/flyme2bluemoon", Icon: InstagramIcon },
+];
+
+const nav = [
+  { href: "/#work", label: "Work" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/writings/", label: "Writings" },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+  </head>
+  <body class="min-h-dvh">
+    <div class="mx-auto max-w-[680px] px-5 sm:px-6">
+      <header class="flex flex-col gap-3 py-6 sm:flex-row sm:items-center sm:justify-between sm:py-8">
+        <Name class="font-serif text-[36px] leading-none sm:text-[40px]">
+          <a href="/">Matthew Shen</a>
+        </Name>
+        <nav class="flex gap-5 text-sm text-muted">
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                class:list={["hover:text-ink", path.startsWith(item.href) && "text-ink"]}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="mt-24 flex flex-col gap-6 border-t border-rule pt-12 pb-20 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+        <p>Toronto / Montréal / Singapore</p>
+        <ul class="flex gap-5">
+          {
+            socials.map(({ label, href, Icon }) => (
+              <li>
+                <a href={href} class="block hover:text-ink" aria-label={label} title={label}>
+                  <Icon class="size-[18px]" aria-hidden="true" />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

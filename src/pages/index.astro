@@ -1,17 +1,104 @@
 ---
-import '../styles/global.css';
+import { getCollection } from "astro:content";
+import GitHubIcon from "../assets/icons/github.svg";
+import DeparturesBoard from "../components/DeparturesBoard.astro";
+import Entry from "../components/Entry.astro";
+import Base from "../layouts/Base.astro";
+
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+
+// Mirrors the Experience section of my résumé (org names shortened).
+const work = [
+  {
+    role: "Data Science and AI Intern",
+    org: "Chime Biologics",
+    orgUrl: "https://chimebiologics.com",
+    place: "Wuhan, Hubei, China",
+    when: "Aug 2026 – Present",
+    points: [
+      "Designed and developed an on-premises agentic workflow to convert Good Manufacturing Practices (GMP) batch production records into structured, queryable data for analytics, visualizations, and AI agents.",
+      "Architected a workflow combining deterministic parsing and AI to derive typed schemas from controlled Word templates, map OCR-extracted values from scanned records into those schemas, and persist the structured output in a relational data model.",
+      "Evaluated and integrated local vision and language models including DeepSeek, MinerU, PaddleOCR-VL, and Qwen to improve extraction accuracy and reliability for GMP batch records.",
+    ],
+  },
+  {
+    role: "Research Assistant",
+    org: "Shared Reality Lab",
+    orgUrl: "https://srl.mcgill.ca",
+    place: "Montréal, QC, Canada",
+    when: "May 2025 – Dec 2025",
+    points: [
+      "Developed a full-stack prototype using Python, TypeScript, Next.js, and Bun that leveraged LLMs to automatically tag natural language messages with Controller-Pilot Datalink Communications (CPDLC) markup.",
+      "Designed human factors and HCI experiments and planned user testing with controllers and pilots to evaluate usability, performance, situational awareness, accuracy, and error recovery.",
+    ],
+  },
+  {
+    role: "COMP 273 Course Assistant & COMP 250/251 TEAM Mentor",
+    org: "School of Computer Science",
+    orgUrl: "https://www.cs.mcgill.ca",
+    place: "Montréal, QC, Canada",
+    when: "Sep 2023 – Apr 2025",
+    points: [
+      "Led weekly tutorials and office hours covering Java, object-oriented programming, data structures, algorithms, and algorithmic complexity for COMP 250 and COMP 251.",
+      "Helped students understand digital circuits, assembly programming, and computer hardware architecture.",
+    ],
+  },
+  {
+    role: "Research Assistant",
+    org: "Social and Technological Systems Lab",
+    orgUrl: "https://sats.lab.yorku.ca",
+    place: "Toronto, ON, Canada",
+    when: "May 2024 – Dec 2024",
+    points: [
+      "Co-designed and developed CogniPrompt, applying human-AI interaction principles to a conversational user interface for assisting people with dementia, helping with daily tasks, memory, and social companionship.",
+      "Integrated a local self-hosted Llama 3.1 large language model using Ollama with function calling and retrieval-augmented generation.",
+      "Developed a full-stack web application using Next.js, WebSockets, and Flask, deployed on Ubuntu Linux with a MySQL database.",
+    ],
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1 class="text-3xl font-bold underline">Astro</h1>
-	</body>
-</html>
+<Base>
+  <DeparturesBoard />
+
+  <section class="mt-14 space-y-4 text-[17px] leading-relaxed">
+    <p>
+      Hi, I'm Matthew. I just finished my Honours B.Sc. in Computer Science and Biology at McGill. I
+      originally grew up in Toronto, then I spent four years in Montréal for uni, and a semester on
+      exchange at Nanyang Technological University in Singapore.
+    </p>
+  </section>
+
+  <section id="work" class="mt-20 scroll-mt-8">
+    <h2 class="mb-8 text-2xl font-semibold tracking-tight">Work</h2>
+    <ol class="space-y-12">
+      {
+        work.map((w) => (
+          <Entry title={w.role} points={w.points}>
+            <span slot="meta">{w.when}</span>
+            <Fragment slot="subtitle">
+              <a href={w.orgUrl} class="link">{w.org}</a> · {w.place}
+            </Fragment>
+          </Entry>
+        ))
+      }
+    </ol>
+  </section>
+
+  <section id="projects" class="mt-20 scroll-mt-8">
+    <h2 class="mb-8 text-2xl font-semibold tracking-tight">Projects</h2>
+    <ul class="space-y-12">
+      {
+        projects.map(({ data }) => (
+          <Entry title={data.title} href={data.url} subtitle={data.stack.join(", ")} points={data.points}>
+            {data.repo && (
+              <a slot="meta" href={data.repo} class="inline-flex hover:text-ink" aria-label={`${data.title} on GitHub`}>
+                <GitHubIcon class="size-4 translate-y-[3px]" aria-hidden="true" />
+              </a>
+            )}
+          </Entry>
+        ))
+      }
+    </ul>
+  </section>
+</Base>

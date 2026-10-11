@@ -1,0 +1,346 @@
+---
+import { Image } from "astro:assets";
+import montreal from "../assets/cities/montreal.png";
+import singapore from "../assets/cities/singapore.png";
+import toronto from "../assets/cities/toronto.png";
+import { flights, flightStats, moonLine } from "../data/flights";
+
+const COLS = 25;
+
+const cities = [
+  {
+    code: "YYZ",
+    name: "Toronto",
+    remark: "HOME",
+    alt: "Union Station and the CN Tower at night, Toronto",
+    image: toronto,
+    position: "50% 20%",
+  },
+  {
+    code: "YUL",
+    name: "Montréal",
+    remark: "UNIVERSITY",
+    alt: "Sunset over the Old Port, Montréal",
+    image: montreal,
+    position: "50% 60%",
+  },
+  {
+    code: "SIN",
+    name: "Singapore",
+    remark: "EXCHANGE",
+    alt: "Marina Bay at night, Singapore",
+    image: singapore,
+    position: "50% 55%",
+  },
+];
+
+const rows = cities.map((c) => `${c.code}  ${c.name.toUpperCase().padEnd(10)}${c.remark}`);
+
+// Recent flights turn up more often: a flight's weight halves every HALF_LIFE years
+// before the newest one.
+const HALF_LIFE = 4;
+const YEAR_MS = 365.25 * 24 * 60 * 60 * 1000;
+const newest = Math.max(...flights.map((f) => Date.parse(f.date)));
+const log = flights.map((f) => ({
+  text: `${f.flight.padEnd(7)}${f.from}›${f.to}    ${f.date.slice(0, 7).replace("-", "·")}`,
+  label: `${f.flight}, ${f.from} to ${f.to}, ${f.date}`,
+  date: f.date,
+  weight: 0.5 ** ((newest - Date.parse(f.date)) / YEAR_MS / HALF_LIFE),
+}));
+
+const km = `${flightStats.km.toLocaleString("en-US")} km`;
+const moons = flightStats.moons.toFixed(2);
+const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
+---
+
+<div
+  id="flight-log"
+  class="board-card scroll-mt-8"
+  data-rows={JSON.stringify(rows)}
+  data-log={JSON.stringify(log)}
+>
+  <div class="rounded-xl bg-[#0e0e0d] p-3 font-mono shadow-[0_18px_36px_-24px_rgba(0,0,0,.45)] sm:p-4">
+    <div class="mb-2.5 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.2em] text-flap sm:text-[11px]">
+      <button
+        type="button"
+        class="toggle cursor-pointer uppercase tracking-[0.2em] hover:text-white"
+        title="psst"
+        aria-pressed="false"
+      >
+        <span aria-hidden="true">✈&#xFE0E;</span>&ensp;<span class="mode">Places I've lived</span>
+      </button>
+      <span class="summary hidden text-right tabular-nums text-white/50" title={logSummary}>
+        <span aria-hidden="true">{moons}× to moon</span>
+        <span class="sr-only">{logSummary}</span>
+      </span>
+    </div>
+
+    <div class="board @container">
+      <div class="heads mb-1.5 grid text-[10px] uppercase tracking-wider text-white/35" aria-hidden="true"></div>
+      <div class="flex flex-col gap-1">
+        {
+          rows.map((row, i) => (
+            <button
+              type="button"
+              class="row grid w-full cursor-pointer gap-[2px] text-left"
+              aria-label={cities[i].name}
+              aria-pressed={i === 0 ? "true" : "false"}
+              data-active={i === 0 ? "" : undefined}
+            >
+              {[...row.padEnd(COLS)].map((ch) => (
+                <span class="cell" aria-hidden="true">{ch}</span>
+              ))}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mt-5 aspect-[4/3] overflow-hidden rounded-xl bg-rule sm:aspect-[16/10]">
+    {
+      cities.map((c, i) => (
+        <Image
+          src={c.image}
+          alt={c.alt}
+          widths={[640, 960, 1360]}
+          sizes="(min-width: 720px) 680px, 100vw"
+          loading={i === 0 ? "eager" : "lazy"}
+          class="photo absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-700 data-active:opacity-100"
+          style={`object-position: ${c.position}`}
+          data-active={i === 0 ? "" : undefined}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .board {
+    --cols: 25;
+  }
+  .heads,
+  .row {
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  }
+  .heads {
+    column-gap: 2px;
+  }
+  .cell {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 0.72;
+    border-radius: 2px;
+    background: linear-gradient(#1f1f1d 50%, #1a1a18 50%);
+    color: #efece4;
+    font-size: clamp(9px, 3.5cqi, 21px);
+    font-weight: 500;
+    line-height: 1;
+    transition: color 0.3s;
+  }
+  .cell::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 auto;
+    height: 1px;
+    background: #0b0b0a;
+  }
+  .row:not([data-active]) .cell {
+    color: color-mix(in oklab, #efece4 55%, transparent);
+  }
+  .row[data-active] .cell {
+    color: var(--color-flap);
+  }
+  .row:hover:not([data-active]) .cell {
+    color: #efece4;
+  }
+  .board-card[data-mode="log"] .row .cell {
+    color: #efece4;
+  }
+  .board-card[data-mode="log"] .row {
+    cursor: default;
+  }
+  .cell.flipping {
+    animation: flip 70ms ease-in;
+  }
+  @keyframes flip {
+    from {
+      transform: perspective(80px) rotateX(-40deg);
+      filter: brightness(1.4);
+    }
+  }
+</style>
+
+<script>
+  const CHARSET = " ABCDEFGHIJKLMNOPQRSTUVWXYZÉ0123456789·'.›-";
+  const COLS = 25;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const heads = {
+    departures: [
+      ["City", 1, 15],
+      ["Remarks", 16, 10],
+    ],
+    log: [
+      ["Flight", 1, 7],
+      ["Route", 8, 7],
+      ["Date", 19, 7],
+    ],
+  } as const;
+
+  for (const card of document.querySelectorAll<HTMLElement>(".board-card")) {
+    const rows = JSON.parse(card.dataset.rows!) as string[];
+    type LogEntry = { text: string; label: string; date: string; weight: number };
+    const log = JSON.parse(card.dataset.log!) as LogEntry[];
+    const photos = [...card.querySelectorAll<HTMLElement>(".photo")];
+    const rowEls = [...card.querySelectorAll<HTMLButtonElement>(".row")];
+    const names = rowEls.map((row) => row.getAttribute("aria-label") ?? "");
+    const summary = card.querySelector<HTMLElement>(".summary")!;
+    const toggle = card.querySelector<HTMLButtonElement>(".toggle")!;
+    const modeLabel = card.querySelector<HTMLElement>(".mode")!;
+    const headsEl = card.querySelector<HTMLElement>(".heads")!;
+
+    let mode: "departures" | "log" = "departures";
+    let active = 0;
+    let autoplay = true;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const renderHeads = () => {
+      headsEl.replaceChildren(
+        ...heads[mode].map(([label, start, span]) => {
+          const el = document.createElement("span");
+          el.textContent = label;
+          el.style.gridColumn = `${start} / span ${span}`;
+          return el;
+        }),
+      );
+    };
+
+    // Bumping a cell's generation cancels any flip still in flight on it.
+    const generations = new WeakMap<HTMLElement, number>();
+
+    // Each flap only rolls forward through the charset, like the real thing.
+    const flipCell = (cell: HTMLElement, target: string, delay: number) => {
+      const gen = (generations.get(cell) ?? 0) + 1;
+      generations.set(cell, gen);
+      const current = cell.textContent ?? " ";
+      const from = CHARSET.indexOf(current);
+      const to = CHARSET.indexOf(target);
+      if (current === target) return;
+      if (reduceMotion || from < 0 || to < 0) {
+        cell.textContent = target;
+        return;
+      }
+      let steps = (to - from + CHARSET.length) % CHARSET.length;
+      let i = steps > 10 ? (to - 10 + CHARSET.length) % CHARSET.length : from;
+      steps = Math.min(steps, 10);
+      setTimeout(function step() {
+        if (generations.get(cell) !== gen) return;
+        i = (i + 1) % CHARSET.length;
+        cell.textContent = CHARSET[i];
+        cell.classList.remove("flipping");
+        void cell.offsetWidth;
+        cell.classList.add("flipping");
+        if (--steps > 0) setTimeout(step, 55);
+      }, delay);
+    };
+
+    const setRow = (rowEl: HTMLElement, text: string) => {
+      const chars = [...text.padEnd(COLS)];
+      rowEl.querySelectorAll<HTMLElement>(".cell").forEach((cell, col) => {
+        flipCell(cell, chars[col], col * 22 + Math.random() * 40);
+      });
+    };
+
+    const select = (index: number) => {
+      active = index;
+      rowEls.forEach((row, i) => {
+        row.toggleAttribute("data-active", mode === "departures" && i === index);
+        row.setAttribute("aria-pressed", String(mode === "departures" && i === index));
+      });
+      photos.forEach((p, i) => p.toggleAttribute("data-active", i === index));
+    };
+
+    // Draw distinct flights, weighted towards recent ones, and list the newest first.
+    const pickFlights = (count: number) => {
+      const pool = [...log];
+      const picked: LogEntry[] = [];
+      while (picked.length < count && pool.length) {
+        let r = Math.random() * pool.reduce((sum, f) => sum + f.weight, 0);
+        const i = pool.findIndex((f) => (r -= f.weight) < 0);
+        picked.push(...pool.splice(i < 0 ? pool.length - 1 : i, 1));
+      }
+      return picked.sort((a, b) => b.date.localeCompare(a.date));
+    };
+
+    const shuffleLog = () => {
+      const picked = pickFlights(rowEls.length);
+      rowEls.forEach((row, i) => {
+        setRow(row, picked[i].text);
+        row.setAttribute("aria-label", picked[i].label);
+      });
+    };
+
+    const schedule = () => {
+      clearInterval(timer);
+      if (mode === "log") {
+        timer = setInterval(shuffleLog, 8000);
+      } else if (autoplay && !reduceMotion) {
+        timer = setInterval(() => select((active + 1) % rows.length), 10000);
+      }
+    };
+
+    const setMode = (next: typeof mode) => {
+      mode = next;
+      card.dataset.mode = mode;
+      modeLabel.textContent = mode === "log" ? "Flight log" : "Places I've lived";
+      toggle.setAttribute("aria-pressed", String(mode === "log"));
+      summary.classList.toggle("hidden", mode !== "log");
+      renderHeads();
+      if (mode === "log") {
+        shuffleLog();
+      } else {
+        rowEls.forEach((row, i) => {
+          setRow(row, rows[i]);
+          row.setAttribute("aria-label", names[i]);
+        });
+      }
+      select(active);
+      schedule();
+    };
+
+    rowEls.forEach((row, i) =>
+      row.addEventListener("click", () => {
+        if (mode !== "departures") return;
+        autoplay = false;
+        select(i);
+        schedule();
+      }),
+    );
+    card.addEventListener("mouseenter", () => mode === "departures" && clearInterval(timer));
+    card.addEventListener("mouseleave", schedule);
+    toggle.addEventListener("click", () => setMode(mode === "log" ? "departures" : "log"));
+
+    const fromHash = () => {
+      if (location.hash !== "#flight-log") return false;
+      if (mode !== "log") setMode("log");
+      return true;
+    };
+    addEventListener("hashchange", fromHash);
+
+    // Boot: roll every flap in from blank.
+    renderHeads();
+    if (!reduceMotion) {
+      rowEls.forEach((row) =>
+        row.querySelectorAll<HTMLElement>(".cell").forEach((c) => (c.textContent = " ")),
+      );
+    }
+    if (!fromHash()) {
+      rowEls.forEach((row, i) =>
+        setTimeout(() => mode === "departures" && setRow(row, rows[i]), 150 + i * 120),
+      );
+      schedule();
+    }
+  }
+</script>

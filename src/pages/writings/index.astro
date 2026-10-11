@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const posts = (await getCollection("writings", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+
+const dateFmt = new Intl.DateTimeFormat("en-CA", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+  timeZone: "America/Toronto",
+});
+---
+
+<Base title="Writings">
+  <h1 class="pt-6 pb-3 text-2xl font-semibold tracking-tight sm:pt-10">Writings</h1>
+  <ul class="divide-y divide-rule">
+    {
+      posts.map((post) => (
+        <li>
+          <a
+            href={`/writings/${post.id}/`}
+            class="group flex flex-col gap-1.5 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-5"
+          >
+            <div class="min-w-0">
+              <h2 class="text-lg tracking-tight transition-colors group-hover:text-muted">
+                {post.data.title}
+              </h2>
+              {post.data.description && (
+                <p class="mt-1 text-sm text-muted">{post.data.description}</p>
+              )}
+            </div>
+            <time
+              datetime={post.data.date.toISOString()}
+              class="shrink-0 text-sm tabular-nums text-muted"
+            >
+              {dateFmt.format(post.data.date)}
+            </time>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

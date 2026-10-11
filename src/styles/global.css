@@ -1,1 +1,51 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --color-paper: #faf9f6;
+  --color-ink: #1b1a18;
+  --color-muted: #75716b;
+  --color-rule: #e6e3dd;
+  --color-flap: #f6c343;
+}
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    @apply bg-paper text-ink antialiased;
+    font-feature-settings: "ss01";
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-paper: #121211;
+      --color-ink: #ecebe8;
+      --color-muted: #96928b;
+      --color-rule: #2a2927;
+    }
+  }
+
+  ::selection {
+    @apply bg-flap text-black;
+  }
+
+  a {
+    @apply decoration-rule underline-offset-[3px] transition-colors;
+  }
+}
+
+@utility link {
+  @apply underline decoration-1 hover:decoration-current;
+}

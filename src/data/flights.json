@@ -1,0 +1,906 @@
+[
+  {
+    "date": "2006-09-08",
+    "flight": "CZ319",
+    "from": "CAN",
+    "to": "HKG",
+    "airline": "China Southern Airlines",
+    "aircraft": ""
+  },
+  {
+    "date": "2006-09-08",
+    "flight": "UA1108",
+    "from": "ORD",
+    "to": "YYZ",
+    "airline": "United Airlines",
+    "aircraft": "B733"
+  },
+  {
+    "date": "2006-09-08",
+    "flight": "UA896",
+    "from": "HKG",
+    "to": "ORD",
+    "airline": "United Airlines",
+    "aircraft": "B744"
+  },
+  {
+    "date": "2007-05-19",
+    "flight": "AC1163",
+    "from": "YYZ",
+    "to": "YVR",
+    "airline": "Air Canada",
+    "aircraft": "B763"
+  },
+  {
+    "date": "2007-05-19",
+    "flight": "AC7",
+    "from": "YVR",
+    "to": "HKG",
+    "airline": "Air Canada",
+    "aircraft": "A343"
+  },
+  {
+    "date": "2007-05-30",
+    "flight": "HU7022",
+    "from": "CAN",
+    "to": "SYX",
+    "airline": "Hainan Airlines",
+    "aircraft": "A319"
+  },
+  {
+    "date": "2007-06-01",
+    "flight": "HU7021",
+    "from": "SYX",
+    "to": "CAN",
+    "airline": "Hainan Airlines",
+    "aircraft": "A319"
+  },
+  {
+    "date": "2007-06-07",
+    "flight": "AC100",
+    "from": "YVR",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2007-06-10",
+    "flight": "AC754",
+    "from": "SFO",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "A319"
+  },
+  {
+    "date": "2007-06-10",
+    "flight": "SQ2",
+    "from": "HKG",
+    "to": "SFO",
+    "airline": "Singapore Airlines",
+    "aircraft": "B744"
+  },
+  {
+    "date": "2007-06-10",
+    "flight": "CZ305",
+    "from": "CAN",
+    "to": "HKG",
+    "airline": "China Southern Airlines",
+    "aircraft": "A319"
+  },
+  {
+    "date": "2010-06-30",
+    "flight": "UA869",
+    "from": "SFO",
+    "to": "HKG",
+    "airline": "United Airlines",
+    "aircraft": "B744"
+  },
+  {
+    "date": "2010-06-30",
+    "flight": "UA867",
+    "from": "YYZ",
+    "to": "SFO",
+    "airline": "United Airlines",
+    "aircraft": "B744"
+  },
+  {
+    "date": "2010-07-21",
+    "flight": "UA862",
+    "from": "HKG",
+    "to": "SFO",
+    "airline": "United Airlines",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2010-07-21",
+    "flight": "UA133",
+    "from": "SFO",
+    "to": "YYZ",
+    "airline": "United Airlines",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2011-03-16",
+    "flight": "WG670",
+    "from": "YYZ",
+    "to": "SNU",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2011-07-02",
+    "flight": "AC757",
+    "from": "YYZ",
+    "to": "SFO",
+    "airline": "Air Canada",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2011-07-04",
+    "flight": "AC758",
+    "from": "SFO",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "A319"
+  },
+  {
+    "date": "2011-11-07",
+    "flight": "AC15",
+    "from": "YYZ",
+    "to": "HKG",
+    "airline": "Air Canada",
+    "aircraft": "B77L"
+  },
+  {
+    "date": "2012-01-18",
+    "flight": "CX829",
+    "from": "YYZ",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2012-01-20",
+    "flight": "CA1725",
+    "from": "HGH",
+    "to": "CAN",
+    "airline": "Air China",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2012-01-29",
+    "flight": "KA783",
+    "from": "CAN",
+    "to": "HKG",
+    "airline": "Dragon Airlines",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2012-06-07",
+    "flight": "CX829",
+    "from": "YYZ",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2012-06-08",
+    "flight": "KA782",
+    "from": "HKG",
+    "to": "CAN",
+    "airline": "Dragon Airlines",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2012-09-04",
+    "flight": "KA783",
+    "from": "CAN",
+    "to": "HKG",
+    "airline": "Dragon Airlines",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2013-03-11",
+    "flight": "TS706",
+    "from": "YYZ",
+    "to": "VRA",
+    "airline": "Air Transat",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2013-03-18",
+    "flight": "TS707",
+    "from": "VRA",
+    "to": "YYZ",
+    "airline": "Air Transat",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2013-08-11",
+    "flight": "CX825",
+    "from": "YYZ",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2013-08-18",
+    "flight": "CZ3521",
+    "from": "CAN",
+    "to": "HGH",
+    "airline": "China Southern Airlines",
+    "aircraft": ""
+  },
+  {
+    "date": "2013-09-01",
+    "flight": "CX828",
+    "from": "HKG",
+    "to": "YYZ",
+    "airline": "Cathay Pacific",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2014-03-05",
+    "flight": "WG422",
+    "from": "YYZ",
+    "to": "PUJ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2014-03-12",
+    "flight": "WG423",
+    "from": "PUJ",
+    "to": "YYZ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2015-03-16",
+    "flight": "WG420",
+    "from": "YYZ",
+    "to": "PUJ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2015-03-23",
+    "flight": "WG421",
+    "from": "PUJ",
+    "to": "YYZ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2015-07-28",
+    "flight": "LH471",
+    "from": "YYZ",
+    "to": "FRA",
+    "airline": "Lufthansa",
+    "aircraft": "B744"
+  },
+  {
+    "date": "2015-07-30",
+    "flight": "LH1182",
+    "from": "FRA",
+    "to": "ZRH",
+    "airline": "Lufthansa",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2015-07-30",
+    "flight": "LX196",
+    "from": "ZRH",
+    "to": "PEK",
+    "airline": "Swiss International Airlines",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2015-08-08",
+    "flight": "CA1725",
+    "from": "HGH",
+    "to": "CAN",
+    "airline": "Air China",
+    "aircraft": "A319"
+  },
+  {
+    "date": "2015-08-18",
+    "flight": "NH934",
+    "from": "CAN",
+    "to": "NRT",
+    "airline": "All Nippon Airways",
+    "aircraft": "B763"
+  },
+  {
+    "date": "2015-08-19",
+    "flight": "AC2",
+    "from": "NRT",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "B788"
+  },
+  {
+    "date": "2016-03-12",
+    "flight": "WG720",
+    "from": "YYZ",
+    "to": "MBJ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2016-03-19",
+    "flight": "WG721",
+    "from": "MBJ",
+    "to": "YYZ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2016-07-31",
+    "flight": "BA98",
+    "from": "YYZ",
+    "to": "LHR",
+    "airline": "British Airways",
+    "aircraft": "B772"
+  },
+  {
+    "date": "2016-08-02",
+    "flight": "AY3126",
+    "from": "LHR",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2016-08-02",
+    "flight": "AY57",
+    "from": "HEL",
+    "to": "PVG",
+    "airline": "Finnair",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2016-08-06",
+    "flight": "CA1721",
+    "from": "HGH",
+    "to": "CAN",
+    "airline": "Air China",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2016-08-27",
+    "flight": "AY70",
+    "from": "HKG",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2016-08-27",
+    "flight": "BA799",
+    "from": "HEL",
+    "to": "LHR",
+    "airline": "British Airways",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2016-08-28",
+    "flight": "BA99",
+    "from": "LHR",
+    "to": "YYZ",
+    "airline": "British Airways",
+    "aircraft": "B772"
+  },
+  {
+    "date": "2017-03-12",
+    "flight": "WG515",
+    "from": "YYZ",
+    "to": "CUN",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2017-03-19",
+    "flight": "WG516",
+    "from": "CUN",
+    "to": "YYZ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2017-07-30",
+    "flight": "TK18",
+    "from": "YYZ",
+    "to": "ISL",
+    "airline": "Turkish Airlines",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2017-08-04",
+    "flight": "TK70",
+    "from": "ISL",
+    "to": "HKG",
+    "airline": "Turkish Airlines",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2017-08-10",
+    "flight": "CA1722",
+    "from": "CAN",
+    "to": "HGH",
+    "airline": "Air China",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2017-08-15",
+    "flight": "FM9315",
+    "from": "SHA",
+    "to": "CAN",
+    "airline": "Shanghai Airlines",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2017-08-20",
+    "flight": "CA1838",
+    "from": "CAN",
+    "to": "SHA",
+    "airline": "Air China",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2017-08-24",
+    "flight": "CA1830",
+    "from": "SHA",
+    "to": "CAN",
+    "airline": "Air China",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2017-08-28",
+    "flight": "TK71",
+    "from": "HKG",
+    "to": "ISL",
+    "airline": "Turkish Airlines",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2017-08-29",
+    "flight": "TK17",
+    "from": "ISL",
+    "to": "YYZ",
+    "airline": "Turkish Airlines",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2018-03-14",
+    "flight": "WG438",
+    "from": "YYZ",
+    "to": "PUJ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2018-03-21",
+    "flight": "WG439",
+    "from": "PUJ",
+    "to": "YYZ",
+    "airline": "Sunwing Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2018-08-05",
+    "flight": "BA92",
+    "from": "YYZ",
+    "to": "LHR",
+    "airline": "British Airways",
+    "aircraft": "B772"
+  },
+  {
+    "date": "2018-08-06",
+    "flight": "AY1342",
+    "from": "LHR",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2018-08-07",
+    "flight": "AY87",
+    "from": "HEL",
+    "to": "PVG",
+    "airline": "Finnair",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2018-08-22",
+    "flight": "ZH9441",
+    "from": "CAN",
+    "to": "CTU",
+    "airline": "Shenzhen Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2018-08-29",
+    "flight": "HO1236",
+    "from": "XIY",
+    "to": "PVG",
+    "airline": "Juneyao Airlines",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2018-08-30",
+    "flight": "AY88",
+    "from": "PVG",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2018-08-30",
+    "flight": "AY1337",
+    "from": "HEL",
+    "to": "LHR",
+    "airline": "Finnair",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2018-08-31",
+    "flight": "BA99",
+    "from": "LHR",
+    "to": "YYZ",
+    "airline": "British Airways",
+    "aircraft": "B772"
+  },
+  {
+    "date": "2019-07-27",
+    "flight": "AY6",
+    "from": "JFK",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2019-07-27",
+    "flight": "AA3957",
+    "from": "YYZ",
+    "to": "JFK",
+    "airline": "American Airlines",
+    "aircraft": "E140"
+  },
+  {
+    "date": "2019-07-28",
+    "flight": "AY101",
+    "from": "HEL",
+    "to": "HKG",
+    "airline": "Finnair",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2019-07-31",
+    "flight": "ZH9971",
+    "from": "CAN",
+    "to": "TNA",
+    "airline": "Shenzhen Airlines",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2019-08-20",
+    "flight": "CX653",
+    "from": "HKG",
+    "to": "BKK",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2019-08-20",
+    "flight": "AY144",
+    "from": "BKK",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2019-08-21",
+    "flight": "AY803",
+    "from": "HEL",
+    "to": "ARN",
+    "airline": "Finnair",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2019-08-21",
+    "flight": "AY803",
+    "from": "ARN",
+    "to": "BGO",
+    "airline": "Finnair",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2019-08-26",
+    "flight": "AY9",
+    "from": "HEL",
+    "to": "ORD",
+    "airline": "Finnair",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2019-08-26",
+    "flight": "AY912",
+    "from": "OSL",
+    "to": "HEL",
+    "airline": "Finnair",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2019-08-27",
+    "flight": "AA3236",
+    "from": "ORD",
+    "to": "YYZ",
+    "airline": "American Airlines",
+    "aircraft": "CRJ7"
+  },
+  {
+    "date": "2023-02-03",
+    "flight": "AC437",
+    "from": "YUL",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "B38M"
+  },
+  {
+    "date": "2023-02-06",
+    "flight": "AC480",
+    "from": "YYZ",
+    "to": "YUL",
+    "airline": "Air Canada",
+    "aircraft": "BCS3"
+  },
+  {
+    "date": "2023-02-25",
+    "flight": "AC7975",
+    "from": "YUL",
+    "to": "YTZ",
+    "airline": "Air Canada",
+    "aircraft": "DH8D"
+  },
+  {
+    "date": "2023-03-05",
+    "flight": "AC400",
+    "from": "YYZ",
+    "to": "YUL",
+    "airline": "Air Canada",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2023-03-23",
+    "flight": "AC429",
+    "from": "YUL",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "BCS3"
+  },
+  {
+    "date": "2023-03-26",
+    "flight": "AC416",
+    "from": "YYZ",
+    "to": "YUL",
+    "airline": "Air Canada",
+    "aircraft": "B77W"
+  },
+  {
+    "date": "2023-04-29",
+    "flight": "BA92",
+    "from": "YYZ",
+    "to": "LHR",
+    "airline": "British Airways",
+    "aircraft": "B772"
+  },
+  {
+    "date": "2023-05-04",
+    "flight": "BA316",
+    "from": "LHR",
+    "to": "CDG",
+    "airline": "British Airways",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2023-05-08",
+    "flight": "BA93",
+    "from": "LHR",
+    "to": "YYZ",
+    "airline": "British Airways",
+    "aircraft": "B772"
+  },
+  {
+    "date": "2023-05-08",
+    "flight": "BA305",
+    "from": "CDG",
+    "to": "LHR",
+    "airline": "British Airways",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2023-12-20",
+    "flight": "AC419",
+    "from": "YUL",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "B38M"
+  },
+  {
+    "date": "2024-01-04",
+    "flight": "AC400",
+    "from": "YYZ",
+    "to": "YUL",
+    "airline": "Air Canada",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2024-10-13",
+    "flight": "AC405",
+    "from": "YUL",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "A321"
+  },
+  {
+    "date": "2025-01-04",
+    "flight": "AC400",
+    "from": "YYZ",
+    "to": "YUL",
+    "airline": "Air Canada",
+    "aircraft": "B38M"
+  },
+  {
+    "date": "2025-06-12",
+    "flight": "AC429",
+    "from": "YUL",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2025-06-15",
+    "flight": "AC488",
+    "from": "YYZ",
+    "to": "YUL",
+    "airline": "Air Canada",
+    "aircraft": "B788"
+  },
+  {
+    "date": "2025-08-28",
+    "flight": "AC429",
+    "from": "YUL",
+    "to": "YYZ",
+    "airline": "Air Canada",
+    "aircraft": "A320"
+  },
+  {
+    "date": "2026-01-01",
+    "flight": "EY22",
+    "from": "YYZ",
+    "to": "AUH",
+    "airline": "Etihad Airways",
+    "aircraft": "A388"
+  },
+  {
+    "date": "2026-01-04",
+    "flight": "EY498",
+    "from": "AUH",
+    "to": "SIN",
+    "airline": "Etihad Airways",
+    "aircraft": "A388"
+  },
+  {
+    "date": "2026-02-13",
+    "flight": "OD7804",
+    "from": "SIN",
+    "to": "KUL",
+    "airline": "Batik Air Malaysia",
+    "aircraft": "B738"
+  },
+  {
+    "date": "2026-02-15",
+    "flight": "TR469",
+    "from": "KUL",
+    "to": "SIN",
+    "airline": "Scoot",
+    "aircraft": "B789"
+  },
+  {
+    "date": "2026-03-02",
+    "flight": "CX636",
+    "from": "SIN",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-03-03",
+    "flight": "CX356",
+    "from": "HKG",
+    "to": "NKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-03-07",
+    "flight": "CX361",
+    "from": "PVG",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "B773"
+  },
+  {
+    "date": "2026-03-07",
+    "flight": "CX791",
+    "from": "HKG",
+    "to": "SIN",
+    "airline": "Cathay Pacific",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2026-05-16",
+    "flight": "CX636",
+    "from": "SIN",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-05-17",
+    "flight": "CX950",
+    "from": "HKG",
+    "to": "CAN",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-05-24",
+    "flight": "CA1837",
+    "from": "CAN",
+    "to": "SHA",
+    "airline": "Air China",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-05-28",
+    "flight": "CA1865",
+    "from": "PVG",
+    "to": "CAN",
+    "airline": "Air China",
+    "aircraft": "A359"
+  },
+  {
+    "date": "2026-06-02",
+    "flight": "CX989",
+    "from": "CAN",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-06-03",
+    "flight": "CX520",
+    "from": "HKG",
+    "to": "NRT",
+    "airline": "Cathay Pacific",
+    "aircraft": "B773"
+  },
+  {
+    "date": "2026-06-13",
+    "flight": "CX503",
+    "from": "KIX",
+    "to": "HKG",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  },
+  {
+    "date": "2026-06-13",
+    "flight": "CX380",
+    "from": "HKG",
+    "to": "PVG",
+    "airline": "Cathay Pacific",
+    "aircraft": "A333"
+  }
+]
