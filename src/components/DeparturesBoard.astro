@@ -59,7 +59,7 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
   data-rows={JSON.stringify(rows)}
   data-log={JSON.stringify(log)}
 >
-  <div class="rounded-xl bg-[#0e0e0d] p-3 font-mono shadow-[0_18px_36px_-24px_rgba(0,0,0,.45)] sm:p-4">
+  <div class="rounded-xl bg-[#0e0e0d] p-3 font-mono shadow-[0_18px_36px_-24px_rgba(0,0,0,.45)] sm:p-4 dark:bg-black dark:inset-shadow-[0_1px_0_rgb(255_255_255/0.06)]">
     <div class="mb-2.5 flex items-center justify-between gap-4 text-[10px] uppercase tracking-[0.2em] text-flap sm:text-[11px]">
       <button
         type="button"
@@ -69,14 +69,14 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
       >
         <span aria-hidden="true">✈&#xFE0E;</span>&ensp;<span class="mode">Places I've lived</span>
       </button>
-      <span class="summary hidden text-right tabular-nums text-white/50" title={logSummary}>
+      <span class="summary hidden text-right tabular-nums text-white/65" title={logSummary}>
         <span aria-hidden="true">{moons}× to moon</span>
         <span class="sr-only">{logSummary}</span>
       </span>
     </div>
 
     <div class="board @container">
-      <div class="heads mb-1.5 grid text-[10px] uppercase tracking-wider text-white/35" aria-hidden="true"></div>
+      <div class="heads mb-1.5 grid text-[10px] uppercase tracking-wider text-white/60" aria-hidden="true"></div>
       <div class="flex flex-col gap-1">
         {
           rows.map((row, i) => (
@@ -147,7 +147,7 @@ const logSummary = `${flightStats.flights} flights, ${km}: ${moonLine}`;
     background: #0b0b0a;
   }
   .row:not([data-active]) .cell {
-    color: color-mix(in oklab, #efece4 55%, transparent);
+    color: color-mix(in oklab, #efece4 75%, transparent);
   }
   .row[data-active] .cell {
     color: var(--color-flap);
