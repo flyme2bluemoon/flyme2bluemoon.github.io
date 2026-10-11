@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://flyme2bluemoon.github.io',
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()]
