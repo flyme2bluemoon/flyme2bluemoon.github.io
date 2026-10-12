@@ -55,6 +55,13 @@
     font-feature-settings: "ss01";
   }
 
+  /* In-page anchor links ease into place. Visitors who prefer less motion jump. */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   ::selection {
     @apply bg-flap text-black;
   }
