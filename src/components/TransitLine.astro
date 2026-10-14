@@ -1,0 +1,111 @@
+---
+// A Work or Projects section drawn as a metro line, in the style of Montréal's STM: a numbered
+// route bullet beside the heading, and a coloured track running down from it through a
+// station for each Entry. An Entry marked `current` is the stop the train is at.
+interface Props {
+  id: string;
+  title: string;
+  number: number;
+  color: string;
+  ordered?: boolean;
+}
+
+const { id, title, number, color, ordered = false } = Astro.props;
+const List = ordered ? "ol" : "ul";
+---
+
+<section id={id} class="mt-20 scroll-mt-8" style={`--line: ${color}`}>
+  <h2 class="mb-8 flex items-center gap-3 text-2xl font-semibold tracking-tight">
+    {/* Sits above the track, which starts behind its centre. */}
+    <span
+      class="relative z-10 grid size-7 shrink-0 place-items-center rounded-full bg-(--line) text-base font-bold text-white"
+      aria-hidden="true"
+    >
+      {number}
+    </span>
+    {title}
+  </h2>
+  <List class="line">
+    <slot />
+  </List>
+</section>
+
+<style>
+  .line {
+    /* Space between stations, the track's centre from the left edge (the bullet's centre),
+       and each station's height: the middle of the entry title's first line. */
+    --gap: 3rem;
+    --track-x: 0.875rem;
+    --stop-y: 0.75rem;
+    --track: 4px;
+    --dot: 0.875rem;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  /* Track from the route bullet down to the first station. The bullet's centre is the
+     heading's margin plus half its line height above the list. */
+  .line::before {
+    content: "";
+    position: absolute;
+    top: -3rem;
+    left: calc(var(--track-x) - var(--track) / 2);
+    width: var(--track);
+    height: calc(3rem + var(--stop-y));
+    background: var(--line);
+  }
+
+  .line > :global(li) {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  /* Track from each station to the next one. */
+  .line > :global(li)::before {
+    content: "";
+    position: absolute;
+    top: var(--stop-y);
+    bottom: calc(-1 * (var(--gap) + var(--stop-y)));
+    left: calc(var(--track-x) - var(--track) / 2);
+    width: var(--track);
+    background: var(--line);
+  }
+
+  /* Past the last station the track runs on a little beyond the section and fades out. */
+  .line > :global(li:last-child)::before {
+    bottom: -1.5rem;
+    background: linear-gradient(var(--line) calc(100% - 6rem), transparent);
+  }
+
+  /* The station. */
+  .line > :global(li)::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--stop-y) - var(--dot) / 2);
+    left: calc(var(--track-x) - var(--dot) / 2);
+    width: var(--dot);
+    height: var(--dot);
+    border: 3px solid var(--line);
+    border-radius: 50%;
+    background: var(--color-paper);
+  }
+
+  /* The current stop blinks like the one on a train's route map. */
+  @media (prefers-reduced-motion: no-preference) {
+    .line > :global(li[data-current])::after {
+      animation: arriving 2s ease-out infinite;
+    }
+  }
+
+  @keyframes arriving {
+    from {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--line) 55%, transparent);
+    }
+    to {
+      box-shadow: 0 0 0 0.625rem transparent;
+    }
+  }
+</style>
