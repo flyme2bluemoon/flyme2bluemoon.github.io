@@ -1,7 +1,8 @@
 ---
 // A Work or Projects section drawn as a metro line, in the style of Montréal's STM: a numbered
 // route bullet beside the heading, and a coloured track running down from it through a
-// station for each Entry. An Entry marked `current` is the stop the train is at.
+// station for each Entry. On phones the line turns compact, London Underground-style: the
+// track hugs the left edge and stations are ticks, so the entries keep as much width as possible.
 interface Props {
   id: string;
   title: string;
@@ -16,9 +17,10 @@ const List = ordered ? "ol" : "ul";
 
 <section id={id} class="mt-20 scroll-mt-8" style={`--line: ${color}`}>
   <h2 class="mb-8 flex items-center gap-3 text-2xl font-semibold tracking-tight">
-    {/* Sits above the track, which starts behind its centre. */}
+    {/* Sits above the track, which starts behind its centre. On phones it hangs into the page
+         padding so its centre lines up with the compact track. */}
     <span
-      class="relative z-10 grid size-7 shrink-0 place-items-center rounded-full bg-(--line) text-base font-bold text-white"
+      class="relative z-10 -ml-3 grid sm:ml-0 size-7 shrink-0 place-items-center rounded-full bg-(--line) text-base font-bold text-white"
       aria-hidden="true"
     >
       {number}
@@ -33,17 +35,25 @@ const List = ordered ? "ol" : "ul";
 <style>
   .line {
     /* Space between stations, the track's centre from the left edge (the bullet's centre),
-       and each station's height: the middle of the entry title's first line. */
+       each station's height (the middle of the entry title's first line), and the text inset. */
     --gap: 3rem;
-    --track-x: 0.875rem;
+    --track-x: 0.125rem;
     --stop-y: 0.75rem;
     --track: 4px;
     --dot: 0.875rem;
+    --inset: 1.125rem;
 
     position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+  }
+
+  @media (width >= 40rem) {
+    .line {
+      --track-x: 0.875rem;
+      --inset: 2.5rem;
+    }
   }
 
   /* Track from the route bullet down to the first station. The bullet's centre is the
@@ -60,7 +70,7 @@ const List = ordered ? "ol" : "ul";
 
   .line > :global(li) {
     position: relative;
-    padding-left: 2.5rem;
+    padding-left: var(--inset);
   }
 
   /* Track from each station to the next one. */
@@ -80,32 +90,27 @@ const List = ordered ? "ol" : "ul";
     background: linear-gradient(var(--line) calc(100% - 6rem), transparent);
   }
 
-  /* The station. */
+  /* The station: on phones, a short tick off the right of the track. */
   .line > :global(li)::after {
     content: "";
     position: absolute;
-    top: calc(var(--stop-y) - var(--dot) / 2);
-    left: calc(var(--track-x) - var(--dot) / 2);
-    width: var(--dot);
-    height: var(--dot);
-    border: 3px solid var(--line);
-    border-radius: 50%;
-    background: var(--color-paper);
+    top: calc(var(--stop-y) - var(--track) / 2);
+    left: calc(var(--track-x) + var(--track) / 2);
+    width: 0.375rem;
+    height: var(--track);
+    background: var(--line);
   }
 
-  /* The current stop blinks like the one on a train's route map. */
-  @media (prefers-reduced-motion: no-preference) {
-    .line > :global(li[data-current])::after {
-      animation: arriving 2s ease-out infinite;
-    }
-  }
-
-  @keyframes arriving {
-    from {
-      box-shadow: 0 0 0 0 color-mix(in srgb, var(--line) 55%, transparent);
-    }
-    to {
-      box-shadow: 0 0 0 0.625rem transparent;
+  /* Wider, a ring on the track. */
+  @media (width >= 40rem) {
+    .line > :global(li)::after {
+      top: calc(var(--stop-y) - var(--dot) / 2);
+      left: calc(var(--track-x) - var(--dot) / 2);
+      width: var(--dot);
+      height: var(--dot);
+      border: 3px solid var(--line);
+      border-radius: 50%;
+      background: var(--color-paper);
     }
   }
 </style>

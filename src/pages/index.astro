@@ -74,7 +74,7 @@ const work = [
   <TransitLine id="work" title="Work" number={1} color="#008e4f" ordered>
     {
       work.map((w) => (
-        <Entry title={w.role} points={w.points} current={w.when.endsWith("Present")}>
+        <Entry title={w.role} points={w.points}>
           <span slot="meta">{w.when}</span>
           <Fragment slot="subtitle">
             <a href={w.orgUrl} class="link">{w.org}</a> · {w.place}

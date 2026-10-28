@@ -3,20 +3,18 @@
 // The `meta` slot fills the right side of the title row (dates, links); the `subtitle`
 // slot can replace the plain-text subtitle when it needs links. Set `inlineMeta` to place
 // short meta (e.g. an icon) right after the title instead of at the far side of the row.
-// Set `current` for the entry happening now; a TransitLine marks it as the train's stop.
 interface Props {
   title: string;
   href?: string;
   subtitle?: string;
   points: string[];
   inlineMeta?: boolean;
-  current?: boolean;
 }
 
-const { title, href, subtitle, points, inlineMeta = false, current = false } = Astro.props;
+const { title, href, subtitle, points, inlineMeta = false } = Astro.props;
 ---
 
-<li data-current={current || undefined}>
+<li>
   <div
     class:list={[
       "flex",
